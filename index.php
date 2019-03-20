@@ -10,4 +10,5 @@
     $stmt->execute();
     $out = $stmt->fetch(PDO::FETCH_ASSOC);
     IfVoid($out);
+    $go;
    ?>
