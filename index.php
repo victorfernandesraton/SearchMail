@@ -3,6 +3,7 @@
     require_once "./_fun/_carryMail.php";
     require_once "./_fun/IsDomain.php";
     require_once "./_fun/ErrorDomain.php";
+    require_once "./_fun/SimilarDomain.php";
     require_once "./_class/_sql.php";
     require_once "./_class/_Mails.php";
     require_once "./_class/_DomainList.php";
@@ -16,7 +17,7 @@
     $domainList = new _DomainList($doms);
 
     // lista de exemplo
-    $mailList = array("victor.baiao1101@gmail.com","jose@outlook.com","mark@gmai.com");
+    $mailList = array("victor.baiao1101@gmail.com","jose@outlook.com","mark@gmi.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
 
@@ -28,6 +29,7 @@
         for ($j = 0; $j < count($domainList->getDomainList());$j++) {
             if ($mail_obj[$i]->getStatus() == "Domain-INvalid") {
                 $mail_obj[$i]->setErrorDomain(ErrorDomain($mail_obj[$i]->getDomain(),$domainList->getDomainList()[$j]));
+                $mail_obj[$i]->setSimilarDomain(SimilarDomain($mail_obj[$i]->getDomain(),$domainList->getDomainList()[$j]));
             }
         }
     }
@@ -37,7 +39,7 @@
     
     for ($i=0; $i < count($mail_obj); $i++) { 
         if ($mail_obj[$i]->getStatus() == "Domain-INvalid") {
-        array_push($ErrorList,$mail_obj[$i]->getDomain());
+        array_push($ErrorList,$mail_obj[$i]->getSimilarDomain());
         }
     }
 

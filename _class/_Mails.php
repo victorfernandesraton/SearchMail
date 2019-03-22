@@ -9,6 +9,7 @@ class _Mails
     private $status;
     private $region;
     private $domainError;
+    private $similarDomain;
     
 
     function __construct($mail) {
@@ -19,7 +20,7 @@ class _Mails
         if ((substr($this->getMail(),-2) == "om")) {
             $this->region = false;
         } else $this->region = substr($this->getMail(),-2);
-        $this->domainError = null;
+        $this->domainError = $this->similarDomain = null;
     }
 
     function setStatus($value) {
@@ -54,5 +55,11 @@ class _Mails
     }
     function getErrorDomain() {
         return $this->domainError;
+    }
+    function setSimilarDomain($value) {
+        $this->similarDomain = $value;
+    }
+    function getSimilarDomain() {
+        return $this->similarDomain;
     }
 }
