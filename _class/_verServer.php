@@ -1,6 +1,9 @@
 <?php
 class VerServer {
     private $server;
+    private $mails;
+    private $addres;
+    
     function __construct()
     {
         $this->setServer();
