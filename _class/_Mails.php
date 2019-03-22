@@ -6,18 +6,17 @@ class _Mails
     private $domain;
     private $position;
     private $status;
-    private $status_arr;
     
 
     function __construct($mail) {
         $this->mail = $mail;
-        $this->position = strpos($this->getmail(), '@');
-        $this->domain = substr($this->getmail(),($this->getPosition()+1));
-        $this->user = substr($this->getmail(),0,($this->getPosition()));
+        $this->position = strpos($this->getMail(), '@');
+        $this->domain = substr($this->getMail(),($this->getPosition()+1));
+        $this->user = substr($this->getMail(),0,($this->getPosition()));
         $this->status = null;
     }
 
-    function getmail() {
+    function getMail() {
         return $this->mail;
     }
 
@@ -25,11 +24,11 @@ class _Mails
         return $this->position;
     }
 
-    function getdomain() {
+    function getDomain() {
         return $this->domain;
     }
 
-    function getuser() {
+    function getUser() {
         return $this->user;
     }
 }
