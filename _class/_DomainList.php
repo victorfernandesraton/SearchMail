@@ -6,6 +6,7 @@ class _DomainList {
     function __construct($arr)
     {
         $this->setDomainList($arr);
+        $this->setRegionList($arr);
     }
 
     function setDomainList($arr) {
@@ -17,9 +18,16 @@ class _DomainList {
     function getDomainList() {
         return $this->domain;
     }
+    function getRegionList() {
+        return $this->region;
+    }
 
-    function setRegionList() {
-        
+    function setRegionList($arr) {
+        foreach ($arr as $value) {
+            if ((substr($value,-2) == "om")) {
+                array_push($this->region,"undefined");
+            } else array_push($this->region,substr($value,-2));
+        }
     }
             
 }

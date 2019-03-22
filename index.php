@@ -13,7 +13,7 @@
     $cx = $pdo->cx_bench();
 
     // lista de dominio
-    $doms = array("hotmail.com","outlook.com","gmail.com");
+    $doms = array("hotmail.com","outlook.com","gmail.com","gmail.ar");
     $domainList = new _DomainList($doms);
 
     // lista de exemplo
@@ -44,4 +44,6 @@
     }
 
     var_dump($ErrorList);
-    ?>
+    var_dump($domainList->getRegionList());
+
+?>
