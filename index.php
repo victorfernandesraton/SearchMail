@@ -2,6 +2,7 @@
     // classes e funções
     require_once "./_fun/_carryMail.php";
     require_once "./_fun/IsDomain.php";
+    require_once "./_fun/ErrorDomain.php";
     require_once "./_class/_sql.php";
     require_once "./_class/_Mails.php";
     require_once "./_class/_DomainList.php";
@@ -15,10 +16,30 @@
     $domainList = new _DomainList($doms);
 
     // lista de exemplo
-    $mailList = array("victor.baiao1101@gmail.com","jose@outlook.com","mark@fg.com");
+    $mailList = array("victor.baiao1101@gmail.com","jose@outlook.com","mark@gmai.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
 
     // validador de dominio
     IsDomain($mail_obj,$domainList->getDomainList());
+
+    // verificando os erros dos dominios
+    for ($i=0; $i < count($mail_obj); $i++) { 
+        for ($j = 0; $j < count($domainList->getDomainList());$j++) {
+            if ($mail_obj[$i]->getStatus() == "Domain-INvalid") {
+                $mail_obj[$i]->setErrorDomain(ErrorDomain($domainList->getDomainList()[$j],$mail_obj[$i]->getDomain()));
+            }
+        }
+    }
+
+    // montando a lista de erros mo dominio
+    $ErrorList = array();
+    
+    for ($i=0; $i < count($mail_obj); $i++) { 
+        if ($mail_obj[$i]->getStatus() == "Domain-INvalid") {
+        array_push($ErrorList,$mail_obj[$i]->getDomain());
+        }
+    }
+
+    var_dump($ErrorList);
     ?>

@@ -8,6 +8,7 @@ class _Mails
     private $arr_status = array("Domain-INvalid","Domain-valid");
     private $status;
     private $region;
+    private $domainError;
     
 
     function __construct($mail) {
@@ -18,6 +19,7 @@ class _Mails
         if ((substr($this->getMail(),-2) == "om")) {
             $this->region = false;
         } else $this->region = substr($this->getMail(),-2);
+        $this->domainError = null;
     }
 
     function setStatus($value) {
@@ -46,5 +48,11 @@ class _Mails
     
     function getRegion() {
         return $this->region;
+    }
+    function setErrorDomain($value) {
+        $this->domainError = $value;
+    }
+    function getErrorDomain() {
+        return $this->domainError;
     }
 }
