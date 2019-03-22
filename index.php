@@ -27,7 +27,7 @@
     for ($i=0; $i < count($mail_obj); $i++) { 
         for ($j = 0; $j < count($domainList->getDomainList());$j++) {
             if ($mail_obj[$i]->getStatus() == "Domain-INvalid") {
-                $mail_obj[$i]->setErrorDomain(ErrorDomain($domainList->getDomainList()[$j],$mail_obj[$i]->getDomain()));
+                $mail_obj[$i]->setErrorDomain(ErrorDomain($mail_obj[$i]->getDomain(),$domainList->getDomainList()[$j]));
             }
         }
     }
