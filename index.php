@@ -1,3 +1,3 @@
 <?php
-    require_once "./config/tratament.php";
+    require_once "./app/teste.php";
 ?>

@@ -9,6 +9,7 @@ function ErrorDomain($mail_obj,$domain_obj) {
                         $out = substr($temp_domain,0,$k);
                     } else if ($k > 1 && $out != null && strcmp(substr($temp_domain,0,$k),substr($temp_true,0,$k)) != 0) {
                     $mail_obj[$i]->setSimilarDomain($temp_true);
+                    $mail_obj[$i]->setErrorDomain(substr($temp_domain,0,$k));
                     $domain_obj[$j]->setErrorQuant($domain_obj[$j]->getErrorQuant()+1);
                     break;
                 } else continue;

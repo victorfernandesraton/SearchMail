@@ -5,7 +5,9 @@ function ValidDomain($domain_mail,$domain_list) {
             if ($domain_mail[$i]->getDomain() == $domain_list[$j]->getDomain()) {
                 $domain_mail[$i]->setStatus(true);
                 break;
-            } else $domain_mail[$i]->setStatus(false);
+            } else {
+                $domain_mail[$i]->setStatus(false);
+            }
         }
     }
 }
