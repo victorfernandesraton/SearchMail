@@ -16,7 +16,7 @@ class _Mails
         $this->domain = substr($this->getMail(),($this->getPosition()+1));
         $this->user = substr($this->getMail(),0,($this->getPosition()));
         if ((substr($mail,-2) == "om")) {
-            $this->region = false;
+            $this->region = "undefined";
         } else $this->region = substr($mail,-2);
         $this->domainError = $this->similarDomain = null;
     }

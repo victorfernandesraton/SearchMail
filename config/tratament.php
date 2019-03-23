@@ -26,7 +26,7 @@
 
     // lista de dominio
     // lista teste
-    $doms = array("hotmail.com","outlook.com","gmail.com","outlook.ar","gmail.br");
+    $doms = array("hotmail.com","outlook.com","gmail.com","outlook.ar");
     
     // carregando dominios como objeto
     $domain_obj = carryDomain($doms);
@@ -56,4 +56,12 @@
     // subistituição e correção dos dôminios   
     ErrorDomain($mail_obj,$domain_obj); 
 
-    ?>
+    // contabilizando paises com erro
+    foreach($mail_obj as $reg_mail) {
+        foreach ($region as $reg_list) {
+            if ($reg_mail->getStatus() == false && strcmp($reg_mail->getRegion(),$reg_list->getRegion()) == 0) {
+                $reg_list->setErrorCount();
+            }
+        }
+    }
+?>

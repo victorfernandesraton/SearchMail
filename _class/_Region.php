@@ -7,8 +7,9 @@ class _Region {
         $this->region = $region;
         $this->errorcount = 0;
     }
+
     function setErrorCount() {
-        $this->errorcount++;
+        $this->errorcount += 1;
     }
     function getErrorCount() {
         return $this->errorcount;
