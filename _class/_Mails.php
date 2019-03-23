@@ -9,7 +9,6 @@ class _Mails
     private $region;
     private $domainError;
     private $similarDomain;
-    
 
     function __construct($mail) {
         $this->mail = $mail;
@@ -21,31 +20,24 @@ class _Mails
         } else $this->region = substr($mail,-2);
         $this->domainError = $this->similarDomain = null;
     }
-
     function setStatus($value) {
         $this->status = $value;
     }
-
     function getStatus() {
         return $this->status;
     }
-
     function getMail() {
         return $this->mail;
     }
-
     function getPosition() {
         return $this->position;
     }
-
     function getDomain() {
         return $this->domain;
     }
-
     function getUser() {
         return $this->user;
     }
-    
     function getRegion() {
         return $this->region;
     }

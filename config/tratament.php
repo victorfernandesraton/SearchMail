@@ -41,8 +41,8 @@
     $ctr = ErrorDomainCountry($mail_obj);
 
     // verificando os dominios com erro
-    $errolist = array();
-    // subistituição e correção dos dôminios    
-    ErrorDomain($mail_obj,$domain_obj,$errolist);
-
+    $DomainErrorList = array();
+    // subistituição e correção dos dôminios   
+    ErrorDomain($mail_obj,$domain_obj); 
+    
     ?>
