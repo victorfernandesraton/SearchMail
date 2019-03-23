@@ -6,6 +6,7 @@
     // configurações
     require_once "_carryMail.php";
     require_once "_carryDomain.php";
+    require_once "_carryRegion.php";
     
     // funções
     require_once "./fun/ValidDomain.php";
@@ -13,7 +14,7 @@
     require_once "./fun/SimilarDomain.php";
     require_once "./fun/ErrorDomainCountry.php";
     require_once "./fun/CathAllRegions.php";
-    require_once "_carryRegion.php";
+    require_once "./fun/ErrorRegionCounter.php";
 
     //classes
     require_once "./_class/_Mails.php";
@@ -50,18 +51,10 @@
     $ctr = ErrorDomainCountry($mail_obj);
     $ctr2 = array_unique($ctr);
     
-    // verificando os dominios com erro
-    $DomainErrorList = array();
-
     // subistituição e correção dos dôminios   
     ErrorDomain($mail_obj,$domain_obj); 
 
     // contabilizando paises com erro
-    foreach($mail_obj as $reg_mail) {
-        foreach ($region as $reg_list) {
-            if ($reg_mail->getStatus() == false && strcmp($reg_mail->getRegion(),$reg_list->getRegion()) == 0) {
-                $reg_list->setErrorCount();
-            }
-        }
-    }
+    ErrorRegionCounter($mail_obj,$region);
+
 ?>
