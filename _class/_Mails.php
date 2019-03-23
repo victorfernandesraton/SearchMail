@@ -5,7 +5,6 @@ class _Mails
     private $user;
     private $domain;
     private $position;
-    private $arr_status = array("Domain-INvalid","Domain-valid");
     private $status;
     private $region;
     private $domainError;
@@ -17,14 +16,14 @@ class _Mails
         $this->position = strpos($this->getMail(), '@');
         $this->domain = substr($this->getMail(),($this->getPosition()+1));
         $this->user = substr($this->getMail(),0,($this->getPosition()));
-        if ((substr($this->getMail(),-2) == "om")) {
+        if ((substr($mail,-2) == "om")) {
             $this->region = false;
-        } else $this->region = substr($this->getMail(),-2);
+        } else $this->region = substr($mail,-2);
         $this->domainError = $this->similarDomain = null;
     }
 
     function setStatus($value) {
-        $this->status = $this->arr_status[$value];
+        $this->status = $value;
     }
 
     function getStatus() {
