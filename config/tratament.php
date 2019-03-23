@@ -12,10 +12,13 @@
     require_once "./fun/ErrorDomain.php";
     require_once "./fun/SimilarDomain.php";
     require_once "./fun/ErrorDomainCountry.php";
+    require_once "./fun/CathAllRegions.php";
+    require_once "_carryRegion.php";
 
     //classes
     require_once "./_class/_Mails.php";
     require_once "./_class/_Domain.php";
+    require_once "./_class/_Region.php";
 
     // conectando ao sql
     $pdo = new cx_bench("root","vfbr1101","mysql","localhost","bteste","3306");
@@ -23,9 +26,15 @@
 
     // lista de dominio
     // lista teste
-    $doms = array("hotmail.com","outlook.com","gmail.com","outlook.ar");
+    $doms = array("hotmail.com","outlook.com","gmail.com","outlook.ar","gmail.br");
+    
     // carregando dominios como objeto
     $domain_obj = carryDomain($doms);
+    
+    // carregando as regions como objeto
+    $AllRegions = CathAllRegions($domain_obj); // captura todas as regios
+    $reg = array_unique($AllRegions); // regiões sem repetição
+    $region = carryRegion($reg);
 
     // lista de enail
     // lista teste
@@ -39,10 +48,12 @@
 
     // paises com erro
     $ctr = ErrorDomainCountry($mail_obj);
-
+    $ctr2 = array_unique($ctr);
+    
     // verificando os dominios com erro
     $DomainErrorList = array();
+
     // subistituição e correção dos dôminios   
     ErrorDomain($mail_obj,$domain_obj); 
-    
+
     ?>
