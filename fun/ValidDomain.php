@@ -6,7 +6,7 @@ function ValidDomain($domain_mail,$domain_list) {
                 $domain_mail[$i]->setStatus(true);
                 $domain_mail[$i]->setSimilarDomain("not error");
                 break;
-            } else {
+            } else if($domain_mail[$i]->getStatus() == null){
                 $domain_mail[$i]->setStatus(false);
                 $domain_mail[$i]->setSimilarDomain("not found");
             }

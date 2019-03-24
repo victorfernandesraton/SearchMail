@@ -27,7 +27,7 @@
 
     // lista de dominio
     // lista teste
-    $doms = array("hotmail.com","outlook.com","gmail.com","outlook.com.ar");
+    $doms = array("hotmail.com","outlook.com","gmail.com","gmail.com.br","outlook.com.ar");
     
     // carregando dominios como objeto
     $domain_obj = carryDomain($doms);
@@ -39,7 +39,7 @@
 
     // lista de enail
     // lista teste
-    $mailList = array("icaro@utlook.com.ar","lucio@hotmail.com","icaro@outlok.ar","lucio@hotml.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
+    $mailList = array("icaro@outlook.com","lucio@hotmail.com","icaro@outlok.ar","lucio@hotml.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
 
