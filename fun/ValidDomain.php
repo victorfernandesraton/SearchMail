@@ -4,9 +4,11 @@ function ValidDomain($domain_mail,$domain_list) {
         for($j = 0; $j < count($domain_list);$j++) {
             if ($domain_mail[$i]->getDomain() == $domain_list[$j]->getDomain()) {
                 $domain_mail[$i]->setStatus(true);
+                $domain_mail[$i]->setSimilarDomain("not error");
                 break;
             } else {
                 $domain_mail[$i]->setStatus(false);
+                $domain_mail[$i]->setSimilarDomain("not found");
             }
         }
     }
