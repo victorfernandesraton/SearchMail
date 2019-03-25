@@ -15,6 +15,7 @@
     require_once "./fun/ErrorDomainCountry.php";
     require_once "./fun/CathAllRegions.php";
     require_once "./fun/ErrorRegionCounter.php";
+    require_once "./fun/WhereErrorDomain.php";
 
     //classes
     require_once "./_class/_Mails.php";
@@ -27,7 +28,7 @@
 
     // lista de dominio
     // lista teste
-    $doms = array("hotmail.com","outlook.com","gmail.com","gmail.com.br","outlook.com.ar");
+    $doms = array("outlook.com","gmail.com","outlook.com.ar","hotmail.com");
     
     // carregando dominios como objeto
     $domain_obj = carryDomain($doms);
@@ -39,7 +40,7 @@
 
     // lista de enail
     // lista teste
-    $mailList = array("icaro@outlook.com","lucio@hotmail.com","icaro@outlok.ar","lucio@hotml.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
+    $mailList = array("jose@gmailk.com","icaro@outlook.com","lucio@hotmail.com","icaro@tlok.ar","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
 
@@ -50,11 +51,15 @@
     // paises com erro
     $ctr = ErrorDomainCountry($mail_obj);
     $ctr2 = array_unique($ctr);
-    
+    $errorlist = array("hotmail","gmail");
     // subistituição e correção dos dôminios   
-    ErrorDomain($mail_obj,$domain_obj); 
+    ErrorDomain($mail_obj,$domain_obj,$errorlist);
 
+    // verifica onde houve a ocorrência de erro
+    foreach ($mail_obj as $value) {
+        WhereErrorDomain($value);
+    }
+        
     // contabilizando paises com erro
-    ErrorRegionCounter($mail_obj,$region);
-
+    ErrorRegionCounter($mail_obj,$region);    
 ?>

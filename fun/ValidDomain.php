@@ -4,6 +4,7 @@ function ValidDomain($domain_mail,$domain_list) {
         for($j = 0; $j < count($domain_list);$j++) {
             if ($domain_mail[$i]->getDomain() == $domain_list[$j]->getDomain()) {
                 $domain_mail[$i]->setStatus(true);
+                $domain_mail[$i]->setPercent(100);
                 $domain_mail[$i]->setSimilarDomain("not error");
                 break;
             } else if($domain_mail[$i]->getStatus() == null){

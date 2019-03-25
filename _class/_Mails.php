@@ -9,8 +9,10 @@ class _Mails
     private $region;
     private $domainError;
     private $similarDomain;
+    private $percent;
 
     function __construct($mail) {
+        $this->percent = null;
         $this->mail = $mail;
         $this->position = strpos($this->getMail(), '@');
         $this->domain = substr($this->getMail(),($this->getPosition()+1));
@@ -52,5 +54,11 @@ class _Mails
     }
     function getSimilarDomain() {
         return $this->similarDomain;
+    }
+    function setPercent($value) {
+        $this->percent = $value;
+    }
+    function getPercent() {
+        return $this->percent;
     }
 }

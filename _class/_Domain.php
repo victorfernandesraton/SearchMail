@@ -1,6 +1,7 @@
 <?php
 class _Domain {
     private $domain;
+    private $truedomain;
     private $region;
     private $errorquant;
     private $errorquantregion;
@@ -8,6 +9,7 @@ class _Domain {
     function __construct($value)
     {
         $this->domain = $value;
+        $this->truedomain = substr($value,0,strpos($value,"."));
         if ((substr($value,-3) === "com")) {
             $this->region = "undefined";
         } else $this->region = substr($value,-2);
@@ -33,6 +35,9 @@ class _Domain {
     }
     function getErrorQuantRegion() {
         return $this->errorquant;
+    }
+    function getTrueDomain() {
+        return $this->truedomain;
     }
 }
 ?>
