@@ -11,8 +11,6 @@
     // funções
     require_once "./fun/ValidDomain.php";
     require_once "./fun/ErrorDomain.php";
-    require_once "./fun/SimilarDomain.php";
-    require_once "./fun/ErrorDomainCountry.php";
     require_once "./fun/CathAllRegions.php";
     require_once "./fun/ErrorRegionCounter.php";
     require_once "./fun/WhereErrorDomain.php";
@@ -43,7 +41,6 @@
     $mailList = array("jose@gmailk.com","icaro@outlook.com.fr","lucio@hotmail.com","icaro@tlok.ar","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
-
 
     // validador de dominio
     ValidDomain($mail_obj,$domain_obj);
