@@ -3,6 +3,8 @@ function WhereErrorDomain($value) {
     if ($value->getStatus() == 0) {
         if (strlen($value->getDomain()) < strlen($value->getSimilarDomain())) {
             $limit = strlen($value->getDomain());
+        } else if($value->getSimilarDomain() == false) {
+            $value->seStatus("not possible");
         } else {
             $limit = strlen($value->getSimilarDomain());
         }

@@ -11,7 +11,7 @@ class _Domain {
         $this->domain = $value;
         $this->truedomain = substr($value,0,strpos($value,"."));
         if ((substr($value,-3) === "com")) {
-            $this->region = "undefined";
+            $this->region = "com";
         } else $this->region = substr($value,-2);
         $this->errorquant = $this->errorquantregion = 0;
     }

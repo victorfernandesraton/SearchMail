@@ -31,17 +31,17 @@ function ErrorDomain($mail,$domain,$error) {
                 if (strlen($mail_value->getDomain()) < 4) {
                     $mail_value->setSimilarDomain(false);
                 } else {
-                    similar_text($mail_value->getDomain(),$domain_value->getTrueDomain(),$before);
+                    similar_text($mail_value->getDomain(),$domain_value->getDomain(),$before);
                     // echo $before."-".$mail_value->getPercent()."<br>";
                     if($before == $mail_value->getPercent() && $before != 0) {
                         foreach ($error as $error_value) {
-                            if (strcmp($mail_value->getSimilarDomain(),$error_value) == 0 || strcmp($domain_value->getTrueDomain(),$error_value) == 0) {
+                            if (strcmp($mail_value->getSimilarDomain(),$error_value) == 0 || strcmp($domain_value->getDomain(),$error_value) == 0) {
                                 $mail_value->setSimilarDomain($error_value);
                             }
                         }
-                    } else if ($before > $mail_value->getPercent()) {
+                    } else if ($before > $mail_value->getPercent() && $mail_value->getStatus() == false) {
                         $mail_value->setPercent($before);
-                        $mail_value->setSimilarDomain($domain_value->getTrueDomain());
+                        $mail_value->setSimilarDomain($domain_value->getDomain());;
                     }
                 }            
             }

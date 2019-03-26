@@ -17,8 +17,8 @@ class _Mails
         $this->position = strpos($this->getMail(), '@');
         $this->domain = substr($this->getMail(),($this->getPosition()+1));
         $this->user = substr($this->getMail(),0,($this->getPosition()));
-        if ((substr($mail,-2) == "om")) {
-            $this->region = "undefined";
+        if ((substr($mail,-3) == "com")) {
+            $this->region = "com";
         } else $this->region = substr($mail,-2);
         $this->domainError = $this->similarDomain = null;
     }
@@ -40,6 +40,9 @@ class _Mails
     function getUser() {
         return $this->user;
     }
+    function setRegion($value) {
+        $this->region = $value;
+    }
     function getRegion() {
         return $this->region;
     }
@@ -51,6 +54,9 @@ class _Mails
     }
     function setSimilarDomain($value) {
         $this->similarDomain = $value;
+        if ((substr($value,-3) == "com")) {
+            $this->region = "com";
+        } else $this->region = substr($value,-2);
     }
     function getSimilarDomain() {
         return $this->similarDomain;

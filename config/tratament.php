@@ -40,18 +40,15 @@
 
     // lista de enail
     // lista teste
-    $mailList = array("jose@gmailk.com","icaro@outlook.com","lucio@hotmail.com","icaro@tlok.ar","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
+    $mailList = array("jose@gmailk.com","icaro@outlook.com.fr","lucio@hotmail.com","icaro@tlok.ar","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
     // carregando emails como objetos
     $mail_obj = carryMail($mailList);
 
 
     // validador de dominio
     ValidDomain($mail_obj,$domain_obj);
-
-    // paises com erro
-    $ctr = ErrorDomainCountry($mail_obj);
-    $ctr2 = array_unique($ctr);
-    $errorlist = array("hotmail","gmail");
+    // lista de prioridade
+    $errorlist = array("hotmail.com","gmail.com");
     // subistituição e correção dos dôminios   
     ErrorDomain($mail_obj,$domain_obj,$errorlist);
 

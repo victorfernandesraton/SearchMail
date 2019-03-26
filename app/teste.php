@@ -23,3 +23,4 @@ foreach($mail_obj as $value):
 endforeach;
 ?>
 </table>
+<?php
