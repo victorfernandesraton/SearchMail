@@ -47,16 +47,17 @@
 
     // validador de dominio
     ValidDomain($mail_obj,$domain_obj);
-    // lista de prioridade
+
+    // lista de prioridade em caso de semelhança
     $errorlist = array("hotmail.com","gmail.com");
+    
     // subistituição e correção dos dôminios   
     ErrorDomain($mail_obj,$domain_obj,$errorlist);
 
-    // verifica onde houve a ocorrência de erro
-    foreach ($mail_obj as $value) {
-        WhereErrorDomain($value);
+    // verifica onde houve a ocorrência de erro e contabiliza os casos de erro
+    foreach ($mail_obj as $mail) {
+        WhereErrorDomain($mail); // onde ocorre o erro
+        ErrorRegionCounter($mail,$region); // contabiliza os paises que mais erraram
+        ErorDomainCounter($mail,$domain_obj); // contabiliza os dominios que são mais errados
     }
-        
-    // contabilizando paises com erro
-    ErrorRegionCounter($mail_obj,$region);    
 ?>

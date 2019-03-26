@@ -1,12 +1,20 @@
 <?php
-function ErrorRegionCounter($mail_obj,$region) {
-foreach($mail_obj as $reg_mail) {
-        foreach ($region as $reg_list) {
-            if ($reg_mail->getStatus() == false){
-                if (strcmp($reg_mail->getRegion(),$reg_list->getRegion()) == 0) {
-                    $reg_list->setErrorCount();
-                } 
-            }
+function ErrorRegionCounter($mail,$region) {
+    foreach ($region as $domain_list) {
+        if ($mail->getStatus() == false){
+            if (strcmp($mail->getRegion(),$domain_list->getRegion()) == 0) {
+                $domain_list->setErrorCount();
+            } 
+        }
+    }
+}
+
+function ErorDomainCounter($mail,$domain) {
+    foreach ($domain as $domain_list) {
+        if ($mail->getStatus() == false){
+            if (strcmp($mail->getSimilarDomain(),$domain_list->getDomain()) == 0) {
+                $domain_list->setErrorQuant();
+            } 
         }
     }
 }

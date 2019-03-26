@@ -24,8 +24,8 @@ class _Domain {
     function getRegion() {
         return $this->region;
     }
-    function setErrorQuant($value) {
-        $this->errorquant = $value;
+    function setErrorQuant() {
+        $this->errorquant++;
     }
     function getErrorQuant() {
         return $this->errorquant;

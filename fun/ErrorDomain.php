@@ -24,24 +24,22 @@ function ErrorDomain_older($mail_obj,$domain_obj) {
 
 function ErrorDomain($mail,$domain,$error) {
     $before = 0;
-    foreach ($mail as $mail_value) {
-        // echo $mail_value->getMail()."<br>";
-        foreach ($domain as $domain_value) {
-            if ($mail_value->getStatus() == false) {
-                if (strlen($mail_value->getDomain()) < 4) {
+    foreach ($mail as $mail_value) { // passagen de objeto email
+        foreach ($domain as $domain_value) { // passagen de objeto dominio
+            if ($mail_value->getStatus() == false) { // se o estatus for falso:
+                if (strlen($mail_value->getDomain()) < 4) { // em casos onde temos endereço de email com poucos caracteres
                     $mail_value->setSimilarDomain(false);
                 } else {
                     similar_text($mail_value->getDomain(),$domain_value->getDomain(),$before);
-                    // echo $before."-".$mail_value->getPercent()."<br>";
-                    if($before == $mail_value->getPercent() && $before != 0) {
+                    if($before == $mail_value->getPercent() && $before != 0) { // caso onde há duas possibilidades distintas de semelhança
                         foreach ($error as $error_value) {
                             if (strcmp($mail_value->getSimilarDomain(),$error_value) == 0 || strcmp($domain_value->getDomain(),$error_value) == 0) {
                                 $mail_value->setSimilarDomain($error_value);
                             }
                         }
-                    } else if ($before > $mail_value->getPercent() && $mail_value->getStatus() == false) {
+                    } else if ($before > $mail_value->getPercent() && $mail_value->getStatus() == false) { // detecta qual tem a maior porcentagem
                         $mail_value->setPercent($before);
-                        $mail_value->setSimilarDomain($domain_value->getDomain());;
+                        $mail_value->setSimilarDomain($domain_value->getDomain());
                     }
                 }            
             }

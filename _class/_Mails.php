@@ -40,9 +40,6 @@ class _Mails
     function getUser() {
         return $this->user;
     }
-    function setRegion($value) {
-        $this->region = $value;
-    }
     function getRegion() {
         return $this->region;
     }
