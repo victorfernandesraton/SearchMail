@@ -1,17 +1,12 @@
 <?php
 function ValidDomain($domain_mail,$domain_list) {
-    for ($i = 0; $i < count($domain_mail); $i++) {
-        for($j = 0; $j < count($domain_list);$j++) {
-            if ($domain_mail[$i]->getDomain() == $domain_list[$j]->getDomain()) {
-                $domain_mail[$i]->setStatus(true);
-                $domain_mail[$i]->setPercent(100);
-                $domain_mail[$i]->setSimilarDomain($domain_mail[$i]->getDomain()); 
-                break;
-            } else if($domain_mail[$i]->getStatus() == null){
-                $domain_mail[$i]->setStatus(false);
-                $domain_mail[$i]->setSimilarDomain("not found");
-            }
-        }
+    if ($domain_mail->getDomain() == $domain_list->getDomain()) {
+        $domain_mail->setStatus(true);
+        $domain_mail->setPercent(100);
+        $domain_mail->setSimilarDomain($domain_mail->getDomain()); 
+    } else if($domain_mail->getStatus() == null){
+        $domain_mail->setStatus(false);
+        $domain_mail->setSimilarDomain("not found");
     }
 }
 

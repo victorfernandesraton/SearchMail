@@ -25,8 +25,10 @@
     $cx = $pdo->cx_bench();
 
     // lista de dominio
-    // lista teste
-    $doms = array("outlook.com","gmail.com","outlook.com.ar","hotmail.com");
+    // teste
+        $doms = array("outlook.com","gmail.com","outlook.com.ar","hotmail.com");
+        // lista de prioridade em caso de semelhança
+        $errorlist = array("hotmail.com","gmail.com");
     
     // carregando dominios como objeto
     $domain_obj = carryDomain($doms);
@@ -43,16 +45,18 @@
     $mail_obj = carryMail($mailList);
 
     // validador de dominio
-    ValidDomain($mail_obj,$domain_obj);
-
-    // lista de prioridade em caso de semelhança
-    $errorlist = array("hotmail.com","gmail.com");
+    foreach ($mail_obj as $mail) { // passagen de objeto email
+        foreach ($domain_obj as $domain) { // passagen de objeto dominio
+            ValidDomain($mail,$domain);
+        }
+    }
+    
     
     // subistituição e correção dos dôminios   
-    ErrorDomain($mail_obj,$domain_obj,$errorlist);
-
-    // verifica onde houve a ocorrência de erro e contabiliza os casos de erro
-    foreach ($mail_obj as $mail) {
+    foreach ($mail_obj as $mail) { // passagen de objeto email
+        foreach ($domain_obj as $domain) { // passagen de objeto dominio
+            ErrorDomain($mail,$domain,$errorlist); // função de análise de erros
+        }
         WhereErrorDomain($mail); // onde ocorre o erro
         ErrorRegionCounter($mail,$region); // contabiliza os paises que mais erraram
         ErorDomainCounter($mail,$domain_obj); // contabiliza os dominios que são mais errados
