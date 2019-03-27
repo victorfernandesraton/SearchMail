@@ -47,7 +47,7 @@
     // validador de dominio
     foreach ($mail_obj as $mail) { // passagen de objeto email
         foreach ($domain_obj as $domain) { // passagen de objeto dominio
-            ValidDomain($mail,$domain);
+            ValidDomain($mail,$domain); // valida os dominios
         }
     }
     
