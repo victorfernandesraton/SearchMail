@@ -3,7 +3,7 @@
 function ErrorDomain($mail,$domain,$error) {
     $before = 0;
     if ($mail->getStatus() == false) { // se o estatus for falso:
-        if (strlen($mail->getDomain()) < 4) { // em casos onde temos endereço de email com poucos caracteres
+        if (strlen($mail->getDomain()) < 3) { // em casos onde temos endereço de email com poucos caracteres
             $mail->setSimilarDomain(false);
         } else {
             similar_text($mail->getDomain(),$domain->getDomain(),$before);

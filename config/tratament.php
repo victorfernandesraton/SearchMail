@@ -40,7 +40,7 @@
 
     // lista de enail
     // lista teste
-    $mailList = array("jose@gmailk.com","icaro@hoitmal.com.fr","lucio@hotmail.com","icaro@tmsn.com","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
+    $mailList = array("paulo@msn.com","jose@gmailk.com","icaro@hoitmal.com.fr","lucio@hotmail.com","icaro@tmsn.com","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
 
     // carregando emails como objetos
     foreach ($mailList as $value) {
@@ -74,11 +74,12 @@
     // unifica os caos de error
     $err = array_unique($errorCases);
 
+    // monta o array de objetos de erros
     foreach ($err as $value) {
         $error_list[] = new _ErrorCase($value);
     }
 
-    // contabiliza os erros mais comuns erificando os que se repetemv
+    // contabiliza os erros mais xcomuns erificando os que se repetemv
     foreach ($mail_obj as $mail) {
         CasesCount($mail,$error_list);
     }
