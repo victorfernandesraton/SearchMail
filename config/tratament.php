@@ -6,8 +6,7 @@
     // funções
     require_once "./fun/ValidDomain.php";
     require_once "./fun/ErrorDomain.php";
-    require_once "./fun/CathAllRegions.php";
-    require_once "./fun/ErrorRegionCounter.php";
+    require_once "./fun/ErrorCounter.php";
     require_once "./fun/WhereErrorDomain.php";
 
     //classes
@@ -79,14 +78,8 @@
         $error_list[] = new _ErrorCase($value);
     }
 
-    // contabiliza o erro
+    // contabiliza os erros mais comuns erificando os que se repetemv
     foreach ($mail_obj as $mail) {
-        if ($mail->getStatus() == false) {
-            foreach ($error_list as  $case_error) {
-                if (strcmp($mail->getDomain(),$case_error->getCase()) == 0) {
-                    $case_error->setErrorCount();
-                }
-            }
-        }    
+        CasesCount($mail,$error_list);
     }
 ?>

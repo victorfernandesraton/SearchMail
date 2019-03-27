@@ -18,4 +18,14 @@ function ErorDomainCounter($mail,$domain) {
         }
     }
 }
+
+function CasesCount($mail,$error_list) {
+    if ($mail->getStatus() == false) {
+        foreach ($error_list as  $case_error) {
+            if (strcmp($mail->getDomain(),$case_error->getCase()) == 0) {
+                $case_error->setErrorCount();
+            }
+        }
+    }    
+}
 ?>
