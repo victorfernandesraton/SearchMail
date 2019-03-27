@@ -61,3 +61,21 @@ foreach($domain_obj as $value):
 endforeach;
 ?>
 </table>
+<br>
+<hr>
+<table>
+<caption>Cases more error</caption>
+<tr>
+    <th>Cases</th>
+    <th>Error quant</th>
+</tr>
+<?php
+foreach($error_list as $value):
+?>
+<tr> 
+    <td><?php echo $value->getCase();?></td>
+    <td><?php echo($value->getErrorCount()); ?></td>
+</tr>
+<?php
+endforeach;
+?>
