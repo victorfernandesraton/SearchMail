@@ -51,7 +51,6 @@
         }
     }
     
-    
     // subistituição e correção dos dôminios   
     foreach ($mail_obj as $mail) { // passagen de objeto email
         foreach ($domain_obj as $domain) { // passagen de objeto dominio
