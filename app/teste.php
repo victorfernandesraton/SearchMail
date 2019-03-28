@@ -2,11 +2,14 @@
 include_once "./config/tratament.php";
 require_once "./database/_sql_connect.php";
 
-    $pdo = new cx_bench("root","vfbr1101","mysql","localhost","bteste","3306");
-    $cx = $pdo->cx_bench();
-
-    $c
-
+    // exemplo de uso
+    $cx = cx_bench("mysql","localhost","3306","root","vfbr1101","mailtool");
+    $querryTables = "SHOW TABLES;";
+    $stmt = $cx->prepare($querryTables);
+    $stmt->execute();
+    while($listTable = $stmt->fetch(PDO::FETCH_ASSOC)):
+        echo $listTable["Tables_in_mailtool"]."<br>";
+    endwhile;
 ?>
 <table>
 <caption>Mail users</caption>
