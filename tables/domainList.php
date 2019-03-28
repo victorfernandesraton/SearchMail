@@ -1,24 +1,12 @@
 <?php
-
-// requisiçao pdo mysql
+// requisição para usar sql
 require_once "../database/_sql_connect.php";
-$cx = cx_bench("mysql","localhost","3306","root","vfbr1101","mailtool");
 
-// querry
-$querryTables = "SELECT * FROM domainlist";
-$sql_mailoldlist = $cx->prepare($querryTables);
+// motagen da lista de dominios
+include_once "./_domainList.php";
 
-// verificação de uso
-if ($sql_mailoldlist->execute()) {
-    echo "<span>tabela disponível</span>";
-} else {
-    echo "<span>tabela indisponível</span>";
-}
-
-// array de valores
-$list_mailoldlist = $sql_mailoldlist->fetchALL(PDO::FETCH_ASSOC);
-
-if ($list_mailoldlist == null) {
+// construindo front-end (tabela)
+if ($list_domainoldlist == null) {
     echo  "<span>tabela vazia</span>";
 } else {
 ?>
@@ -30,11 +18,12 @@ if ($list_mailoldlist == null) {
     <th>Region</th>
 </tr>
 <?php
-    foreach ($list_mailoldlist as $value):
+    foreach ($list_domainoldlist as $value):
 ?>
 <tr>
     <td><?php echo $value['index'];?></td>
     <td><?php echo $value['domainAdress'];?></td>
+    <td><?php echo $value['regionAdress'];?></td>
 </tr>
 <?php
     endforeach;

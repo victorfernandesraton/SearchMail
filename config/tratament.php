@@ -2,6 +2,8 @@
 
     // database connection
     require_once "./database/_sql_connect.php";
+    include_once "./tables/_domainList.php";
+
         
     // funções
     require_once "./fun/ValidDomain.php";
@@ -16,11 +18,15 @@
     require_once "./_class/_ErrorCase.php";
 
     // lista de dominio
-    // teste
-        $doms = array("gmail.com","hotmail.com","hotmail.com.br","hotmail.com.mx","hotmail.com.ar","msn.com");
+        // teste
+        // $doms = array("gmail.com","hotmail.com","hotmail.com.br","hotmail.com.mx","hotmail.com.ar","msn.com");
+        // banco de dados
+        foreach ($list_domainoldlist as $value) {
+            $doms[] = $value["domainAdress"];
+        }
         // lista de prioridade em caso de semelhança
-        $priority_list = array("msn.com","hotmail.com.br","hotmail.com.mx","hotmail.com.ar","hotmail.com","gmail.com");
-    
+        // $priority_list = array("msn.com","hotmail.com.br","hotmail.com.mx","hotmail.com.ar","hotmail.com","gmail.com");
+        $priority_list = array_reverse($doms);
     // carregando dominios e regiões como objeto
     foreach ($doms as $value) {
         $domain_obj[] = new _Domain($value);
