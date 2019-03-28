@@ -3,8 +3,8 @@
     // database connection
     require_once "./database/_sql_connect.php";
     include_once "./tables/_domainList.php";
+    include_once "./tables/_mailoldlist.php";
 
-        
     // funções
     require_once "./fun/ValidDomain.php";
     require_once "./fun/ErrorDomain.php";
@@ -46,8 +46,10 @@
 
     // lista de enail
     // lista teste
-    $mailList = array("paulo@msn.com","jose@gmailk.com","icaro@hoitmal.com.fr","lucio@hotmail.com","icaro@tmsn.com","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
-
+    // $mailList = array("paulo@msn.com","jose@gmailk.com","icaro@hoitmal.com.fr","lucio@hotmail.com","icaro@tmsn.com","lucio@hotmal.com","victor.baiao1101@gmil.com","jose@gmail.com","mark@gmal.com");
+    foreach ($list_mailoldlist as $value) {
+        $mailList[] = $value["mailAdress"];
+    }
     // carregando emails como objetos
     foreach ($mailList as $value) {
         $mail_obj[] = new _Mails($value);
