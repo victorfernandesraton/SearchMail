@@ -3,8 +3,8 @@
     // database connection
     require_once "./database/_sql_connect.php";
     include_once "./tables/_domainList.php";
+    include_once "./tables/_mailoldlist.php";
 
-        
     // funções
     require_once "./fun/ValidDomain.php";
     require_once "./fun/ErrorDomain.php";
