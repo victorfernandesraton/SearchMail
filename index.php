@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
-    <script src = "./jQuerry/jQuerry.js";
+    <script src = "./jQuerry/jQuerry.js";>
 </head>
 <body>
     <h1>Carregando... Em breve você será redirecionado</h1>
