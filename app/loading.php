@@ -23,4 +23,8 @@
     $path = dirname(__DIR__);
     echo $path;
     require_once $path."/config/tratament.php";
-    // LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,5);
+    if (verfy_tb("mailoldlist") == true) {
+        LoadCorrectMails($mailcorrect_status,$mail_obj,$cx);
+    }
+    set_time_limit(3); // Limite de tempo de execução: 2h. Deixe 0 (zero) para sem limite
+    ignore_user_abort( true ); // Não encerra o processamento em caso de perda de conexão

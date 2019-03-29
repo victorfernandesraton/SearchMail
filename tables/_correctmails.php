@@ -5,7 +5,7 @@ require_once $path."/database/_sql_connect.php";
 $cx = cx_bench("mailtool");
 
 // querry
-$query = "SELECT * FROM mailcorrect";
+$query = "SELECT 1 FROM mailcorrect";
 $stmt = $cx->prepare($query);
 $stmt->execute();
 

@@ -1,7 +1,6 @@
 <?php
-function LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,$time) {
+function LoadCorrectMails($mailcorrect_status,$mail_obj,$cx) {
     if ($mailcorrect_status == true) {
-        set_time_limit($time);
         foreach ($mail_obj as $mail) {
             $mail_correct = $mail->getUser()."@".$mail->getSimilarDomain();
             $mail_region = $mail->getRegion();

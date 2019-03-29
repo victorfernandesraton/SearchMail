@@ -14,7 +14,18 @@ function cx_bench($database) {
     return $conn;
     } catch (PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
+        return false;
     }
+}
+
+function verfy_tb($table) {
+    try {
+        $result = cx_bench("mailtool")->query("SELECT 1 FROM $table LIMIT 1");
+    } catch (Exception $e) {
+        // We got an exception == table not found
+        return FALSE;
+    }
+    return $result !== FALSE;
 }
     
     // conectando ao sql
