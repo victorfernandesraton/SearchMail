@@ -20,11 +20,12 @@
 </html>
 
 <?php
-    set_time_limit(0); // Limite de tempo de execução: 2h. Deixe 0 (zero) para sem limite
-    ignore_user_abort( true ); // Não encerra o processamento em caso de perda de conexão
     $path = dirname(__DIR__);
     require_once $path."/config/tratament.php";
-    
-    if (verfy_tb("mailoldlist") === true) {
+
+    set_time_limit(5); // Limite de tempo de execução: Deixe 0 (zero) para sem limite
+    ignore_user_abort( true ); // Não encerra o processamento em caso de perda de conexão
+
+    if (verfy_tb("mailoldlist") === true) { // verifica se a tabela exite
         LoadCorrectMails($mailcorrect_status,$mail_obj,$cx);
-    }
+    } // cria tabela caso não exista
