@@ -1,11 +1,7 @@
 <?php
     // cabeçário
     $path = dirname(__DIR__);
-    require_once $path."/config/const.php";
-    require_once $path."/database/_sql_connect.php";
     include_once $path."/config/tratament.php";
-
-
 ?>    
 <!DOCTYPE html>
 <html>

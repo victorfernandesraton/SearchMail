@@ -18,6 +18,9 @@
     require_once $path."/_class/_Region.php";
     require_once $path."/_class/_ErrorCase.php";
 
+    // carregadores
+    require_once $path."/fun/carryCorrectCases.php";
+
     // lista de dominio
         // teste
         // $doms = array("gmail.com","hotmail.com","hotmail.com.br","hotmail.com.mx","hotmail.com.ar","msn.com");
@@ -87,8 +90,32 @@
     foreach ($err as $value) {
         $error_list[] = new _ErrorCase($value);
     }
-    $totalerros = $indetermination = $correctcases = 0;
+    
+    // carrega os email's corrigidos em uma tabela sql
+    if ($mailcorrect_status == true) {
+        set_time_limit(0);
+        foreach ($mail_obj as $mail) {
+            $mail_correct = $mail->getUser()."@".$mail->getSimilarDomain();
+            $mail_region = $mail->getRegion();
+            $mail_user = $mail->getUser();
+
+            $query = "INSERT INTO mailcorrect 
+            (mailAdress,
+            region,
+            user) VALUES (:mailAdress,
+            :region,
+            :user);";
+
+            $stmt = $cx->prepare($query);
+            $stmt->bindValue(":mailAdress",$mail_correct);
+            $stmt->bindValue(":region",$mail_region);
+            $stmt->bindValue(":user",$mail_user);
+            $stmt->execute();
+        }
+    }
+
     // contabiliza os erros mais comuns erificando os que se repetemv
+    $totalerros = $indetermination = $correctcases = 0;
     foreach ($mail_obj as $mail) {
         CasesCount($mail,$error_list);
         // contabilizando indeterminação
@@ -100,5 +127,4 @@
             $totalerros++;
         }
     }
-
 ?>
