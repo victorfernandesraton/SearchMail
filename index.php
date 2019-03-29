@@ -15,5 +15,5 @@
 </html>
 <?php
     require_once "./config/tratament.php";
-    header("location: ./app/Menu.php");
+    header("location: ./app/Me  nu.php");
 ?>
