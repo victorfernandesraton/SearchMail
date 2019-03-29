@@ -5,6 +5,7 @@
     include_once $path."/database/_sql_connect.php";
     include_once $path."/tables/_domainList.php";
     include_once $path."/tables/_mailoldlist.php";
+    include_once $path."/tables/_correctmails.php";
 
     // funções
     require_once $path."/fun/ValidDomain.php";
@@ -91,29 +92,6 @@
         $error_list[] = new _ErrorCase($value);
     }
     
-    // carrega os email's corrigidos em uma tabela sql
-    if ($mailcorrect_status == true) {
-        set_time_limit(0);
-        foreach ($mail_obj as $mail) {
-            $mail_correct = $mail->getUser()."@".$mail->getSimilarDomain();
-            $mail_region = $mail->getRegion();
-            $mail_user = $mail->getUser();
-
-            $query = "INSERT INTO mailcorrect 
-            (mailAdress,
-            region,
-            user) VALUES (:mailAdress,
-            :region,
-            :user);";
-
-            $stmt = $cx->prepare($query);
-            $stmt->bindValue(":mailAdress",$mail_correct);
-            $stmt->bindValue(":region",$mail_region);
-            $stmt->bindValue(":user",$mail_user);
-            $stmt->execute();
-        }
-    }
-
     // contabiliza os erros mais comuns erificando os que se repetemv
     $totalerros = $indetermination = $correctcases = 0;
     foreach ($mail_obj as $mail) {
@@ -127,4 +105,11 @@
             $totalerros++;
         }
     }
+
+    // carrega os email's corrigidos em uma tabela sql
+    // LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,0);
+    // modo de teste 
+    LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,5);
+    header("refresh: 10");
+    
 ?>
