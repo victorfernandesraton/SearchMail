@@ -3,8 +3,10 @@ class _Domain {
     private $domain;
     private $truedomain;
     private $region;
-    private $errorquant;
-    private $errorquantregion;
+    private $errorcount;
+    private $errorcountregion;
+    private $correctcount;
+    private $totalcount;
     
     function __construct($value)
     {
@@ -13,7 +15,7 @@ class _Domain {
         if ((substr($value,-3) === "com")) {
             $this->region = "com";
         } else $this->region = substr($value,-2);
-        $this->errorquant = $this->errorquantregion = 0;
+        $this->errorcount = $this->errorcount = $this->errorcountregion = 0;
     }
     function setDomain($value) {
         $this->domain = $value;
@@ -25,16 +27,28 @@ class _Domain {
         return $this->region;
     }
     function setErrorQuant() {
-        $this->errorquant++;
+        $this->errorcount++;
     }
     function getErrorQuant() {
-        return $this->errorquant;
+        return $this->errorcount;
+    }
+    function setTotalQuant() {
+        $this->totalcount++;
+    }
+    function getTotalQuant() {
+        return $this->totalcount;
+    }
+    function setCorrectQuant() {
+        $this->correctcount++;
+    }
+    function getCorrectCount() {
+        return $this->correctcount;
     }
     function setErrorQuantRegion($value) {
-        $this->errorquant = $value;
+        $this->errorcount = $value;
     }
     function getErrorQuantRegion() {
-        return $this->errorquant;
+        return $this->errorcount;
     }
     function getTrueDomain() {
         return $this->truedomain;

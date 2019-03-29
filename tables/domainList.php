@@ -1,10 +1,8 @@
 <?php
-// requisição para usar sql
-require_once "../config/const.php";
-require_once "../database/_sql_connect.php";
-
+$path = dirname(__DIR__);
+$localpath = dirname(__FILE__);
 // motagen da lista de dominios
-include_once "./_domainList.php";
+include_once $localpath."/_domainList.php";
 
 // construindo front-end (tabela)
 if ($list_domainoldlist == null) {

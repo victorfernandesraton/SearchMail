@@ -1,5 +1,6 @@
 <?php
 // requisiçao pdo mysql
+require_once $path."/database/_sql_connect.php";
 $cx = cx_bench("mailtool");
 
 // querry

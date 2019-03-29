@@ -1,10 +1,9 @@
 <?php
-// configutação do sql
-require_once "../config/const.php";
-require_once "../database/_sql_connect.php";
+$path = dirname(__DIR__);
+$localpath = dirname(__FILE__);
 
 // requisiçao pdo mysql
-require_once "./_mailoldlist.php";
+include_once $localpath."/_mailoldlist.php";
 
 if ($list_mailoldlist == null) {
     echo  "<span>tabela vazia</span>";

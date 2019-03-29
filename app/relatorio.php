@@ -1,6 +1,11 @@
 <?php
-    require_once "./config/const.php";
-    include_once "./config/tratament.php";
+    // cabeçário
+    $path = dirname(__DIR__);
+    require_once $path."/config/const.php";
+    require_once $path."/database/_sql_connect.php";
+    include_once $path."/config/tratament.php";
+
+
 ?>    
 <!DOCTYPE html>
 <html>
@@ -20,30 +25,51 @@
             <th>Quantidade</th>
             <td> <?php echo count($mail_obj); ?> </td>
         </tr>
+        <tr>
+            <th>Endereços corretos</th>
+            <td><?php echo $correctcases; ?></td>
+        </tr>
+        <tr>
+            <th>Endereços incorretos</th>
+            <td><?php echo $totalerros; ?></td>
+        </tr>
+        <tr>
+            <th>Casos de indeterminação</th>
+            <td><?php echo $indetermination; ?></td>
+        </tr>
     </table>
     <table class = "tbrelatorio"><br><hr>
-    <caption class = "tbrelatorio legenda">Erros por pais</caption>
+    <caption class = "tbrelatorio legenda">Regiões</caption>
     <tr>
         <th>Região</th>
-        <th>Quantidade</th>
+        <th>Total</th>
+        <th>Corretos</th>
+        <th>Erros</th>
     </tr>
     <?php foreach($region as $value): ?>
     <tr> 
         <td><?php echo $value->getRegion();?></td>
+        <td><?php echo($value->getTotalCount()); ?></td>
+        <td><?php echo($value->getCorrectCount()); ?></td>
         <td><?php echo($value->getErrorCount()); ?></td>
     </tr>
     <?php endforeach; ?>
     </table><br><hr>
     <table class = "tbrelatorio">
-    <caption class = "tbrelatorio legenda">Domínios com erro</caption>
+    <caption class = "tbrelatorio legenda">Domínios</caption>
     <tr>
         <th>Domínio</th>
-        <th>Quantidade de erro</th>
+        <th>Total</th>
+        <th>Corretos</th>
+        <th>Erros</th>
     </tr>
     <?php foreach($domain_obj as $value): ?>
     <tr> 
         <td><?php echo $value->getDomain();?></td>
+        <td><?php echo($value->getTotalQuant()); ?></td>
+        <td><?php echo($value->getCorrectCount()); ?></td>
         <td><?php echo($value->getErrorQuant()); ?></td>
+
     </tr>
     <?php endforeach; ?>
     </table><br><hr>

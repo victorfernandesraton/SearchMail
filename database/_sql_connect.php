@@ -1,4 +1,8 @@
 <?php
+// constantes
+$path = dirname(__DIR__);
+require_once $path."/config/const.php";
+
 function cx_bench($database) {
     try {
         $conn = new PDO(SQL_TYPE.':'.SQL_HOST.'='.SQL_USER.'port='.SQL_PORT.';dbname='.$database, SQL_USER,SQL_PASS,array(
