@@ -4,13 +4,17 @@ $path = dirname(__DIR__);
 require_once $path."/database/_sql_connect.php";
 $cx = cx_bench("mailtool");
 
-// querry
-$querryTables = "SELECT * FROM mailoldlist";
-$sql_mailoldlist = $cx->prepare($querryTables);
-
-// verificação de uso
-$sql_mailoldlist->execute();
-
-// array de valores
-$list_mailoldlist = $sql_mailoldlist->fetchALL(PDO::FETCH_ASSOC);
+if (verfy_tb("mailoldlist") == true) {
+    // querry
+    $query = "SELECT * FROM mailoldlist";
+    $sql_mailoldlist = $cx->prepare($query);
+    
+    // verificação de uso
+    $sql_mailoldlist->execute();
+    
+    // array de valores
+    $list_mailoldlist = $sql_mailoldlist->fetchALL(PDO::FETCH_ASSOC);
+} else {
+    echo "false";
+}
 ?>
