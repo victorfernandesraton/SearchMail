@@ -1,3 +1,3 @@
 <?php
-    require_once "./app/teste.php";
+    require_once "./app/relatorio.php";
 ?>
