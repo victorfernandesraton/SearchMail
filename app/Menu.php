@@ -20,5 +20,6 @@
     <h1>Menu Principal</h1>
     <a href="./relatorio.php">Relatório</a>
     <a href = "../settings/conexao.php">Conecção</a>
+    <a href = "./loading.php">Carregar o banco de dados</a>
 </body>
 </html>

@@ -6,20 +6,19 @@
     <title>Serachmail Carregando...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!-- jquerry offline server side -->
+    <!-- <script src = "./jQuerry/jQuerry.js";> -->
+    <!-- jquerry google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
-    <script src = "./jQuerry/jQuerry.js";>
 </head>
 <body>
     <h1>Carregando... Em breve você será redirecionado</h1>
 </body>
+
 </html>
 <?php
-    set_time_limit(5);
-    ignore_user_abort();
     require_once "./config/tratament.php";
     // carrega os email's corrigidos em uma tabela sql
-    LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,2);
-    // modo de teste 
     header("location: ./app/Menu.php");
-    
 ?>
