@@ -14,6 +14,12 @@
 </body>
 </html>
 <?php
+    set_time_limit(5);
+    ignore_user_abort();
     require_once "./config/tratament.php";
-    header("location: ./app/Me  nu.php");
+    // carrega os email's corrigidos em uma tabela sql
+    LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,2);
+    // modo de teste 
+    header("location: ./app/Menu.php");
+    
 ?>

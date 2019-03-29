@@ -105,11 +105,4 @@
             $totalerros++;
         }
     }
-
-    // carrega os email's corrigidos em uma tabela sql
-    // LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,0);
-    // modo de teste 
-    LoadCorrectMails($mailcorrect_status,$mail_obj,$cx,5);
-    header("refresh: 10");
-    
 ?>
