@@ -1,7 +1,7 @@
 <?php
-function cx_bench($dbtype,$host,$port,$username,$pass,$database) {
+function cx_bench($database) {
     try {
-        $conn = new PDO($dbtype.':'.$host.'='.$username.'port='.$port.';dbname='.$database, $username,$pass,array(
+        $conn = new PDO(SQL_TYPE.':'.SQL_HOST.'='.SQL_USER.'port='.SQL_PORT.';dbname='.$database, SQL_USER,SQL_PASS,array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
             PDO::ATTR_PERSISTENT => false,
             PDO::ATTR_EMULATE_PREPARES => false,

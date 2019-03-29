@@ -1,4 +1,5 @@
 <?php
+    require_once "./config/const.php";
     include_once "./config/tratament.php";
 ?>    
 <!DOCTYPE html>

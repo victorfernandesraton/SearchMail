@@ -1,5 +1,6 @@
 <?php
 // requisição para usar sql
+require_once "../config/const.php";
 require_once "../database/_sql_connect.php";
 
 // motagen da lista de dominios
@@ -15,7 +16,6 @@ if ($list_domainoldlist == null) {
 <tr>
     <th>index</th>
     <th>domaim adress</th>
-    <th>Region</th>
 </tr>
 <?php
     foreach ($list_domainoldlist as $value):
@@ -23,7 +23,6 @@ if ($list_domainoldlist == null) {
 <tr>
     <td><?php echo $value['index'];?></td>
     <td><?php echo $value['domainAdress'];?></td>
-    <td><?php echo $value['regionAdress'];?></td>
 </tr>
 <?php
     endforeach;
