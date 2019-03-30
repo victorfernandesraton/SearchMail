@@ -2,8 +2,9 @@
 $path = dirname(__DIR__);
 require_once $path."/tables/_domainList.php";
 ?>
-<script type="text/javascript">
-    var domain_list = [<?php foreach ($list_domainoldlist as $value) {
+<script>
+    var domain_list = [<?php 
+    foreach ($list_domainoldlist as $value) {
         echo ('"'.$value['domainAdress'].'"'.",");
     } ?>];
 </script>
@@ -13,9 +14,10 @@ require_once $path."/tables/_domainList.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SearchMail - Teste de script</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="./jQuerry/jQuerry.js"></script>
+    <?php 
+    $path = dirname(__DIR__);
+    require_once $path."/config/allfront.php";
+    ?>
     <script type="text/javascript" src="./js/getForm.js"></script>
 </head>
 <body>
