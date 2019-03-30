@@ -18,6 +18,7 @@
     require_once $path."/_class/_Domain.php";
     require_once $path."/_class/_Region.php";
     require_once $path."/_class/_ErrorCase.php";
+    require_once $path."/_class/_Exceptions.php";
 
     // carregadores
     require_once $path."/fun/carryCorrectCases.php";
@@ -66,11 +67,15 @@
             ValidDomain($mail,$domain); // valida os dominios
         }
     }
-    
+
+    // exceções de teste
+    $except[] = new _Exceptions("gmail.com","mail.com");
     // subistituição e correção dos dôminios   
     foreach ($mail_obj as $mail) { // passagen de objeto email
         foreach ($domain_obj as $domain) { // passagen de objeto dominio
-            ErrorDomain($mail,$domain,$priority_list); // função de análise de erros
+            foreach ($except as $exp_list) {
+                ErrorDomain($mail,$domain,$priority_list,$exp_list); // função de análise de erros
+            }
         }
         WhereErrorDomain($mail); // onde ocorre o erro
         RegionCounter($mail,$region); // contabiliza os paises que mais erraram que mais acertam e o total
