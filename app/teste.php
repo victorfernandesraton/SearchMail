@@ -3,7 +3,7 @@ $path = dirname(__DIR__);
 require_once $path."/tables/_domainList.php";
 ?>
 <script type="text/javascript">
-    var arr = [<?php foreach ($list_domainoldlist as $value) {
+    var domain_list = [<?php foreach ($list_domainoldlist as $value) {
         echo ('"'.$value['domainAdress'].'"'.",");
     } ?>];
 </script>
@@ -21,7 +21,7 @@ require_once $path."/tables/_domainList.php";
 <body>
     <form id ="mailform">
     <input type="email" id ="mail" name = "mail" required>
-    <a id="verify" onclick= 'setValue()'>Enviar</a>
+    <a id="verify">Enviar</a>
     <div id = "_teste">
     </div>
     <input type="submit" value="enviar">
