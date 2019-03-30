@@ -1,5 +1,5 @@
-var err_case = domain_list.reverse();
-console.log(err_case);
+var domain_pref = domain_list.reverse();
+console.log(domain_pref);
 
 function similar_text (first, second) {
     // Calculates the similarity between two strings  
@@ -68,7 +68,7 @@ $(document).ready(function() { // ao iniciar o documento...
                 if (similar_text(mail,domain_src) > mostcomp) {
                     mostcomp = similar_text(mail,domain_src);
                     compout = domain_src;
-                } else if (mostcomp == similar_text(mail,err_case)) {
+                } else if (mostcomp == similar_text(mail,domain_src)) {
                     domain_pref.forEach(err_case => {
                         if (domain_src === err_case) {
                             compout = err_case;
@@ -80,3 +80,5 @@ $(document).ready(function() { // ao iniciar o documento...
         }
     });
 });
+console.log(similar_text("sn.com","hotmail.com"));
+console.log(similar_text("sn.com","msn.com"));
