@@ -2,13 +2,9 @@ var domain_pref = domain_list.reverse();
 console.log(domain_pref);
 
 function similar_text (first, second) {
-    // Calculates the similarity between two strings  
-    // discuss at: http://phpjs.org/functions/similar_text
-
     if (first === null || second === null || typeof first === 'undefined' || typeof second === 'undefined') {
         return 0;
     }
-
     first += '';
     second += '';
 
