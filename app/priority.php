@@ -1,28 +1,17 @@
 <?php
+$path = dirname(__DIR__);
+require_once $path."/fun/modfyPriority.php";
 
-$arrteste = array(1,2,3,4);
-
-function addOne($arrteste,$iten) {
-    foreach ($arrteste as $key => $value) {
-        if ($iten == $value) {
-            $out = $key;
-            break;
-        } else $out == null;
-    }
-    if ($out != null) {
-        foreach ($arrteste as $key => $value) {
-            if ($key == $out-1) {
-                $after = $value;
-            } else if ($key == $out) {
-                $true = $value;
-            } else if ($key == $out+1) {
-                $before = $value;
-            }
-        }
-        foreach ($arr as $key => $value) {
-            # code...
-        }
-    }
+$arrteste = array("um","dois","tres");
+// $arrteste = addOne($arrteste,"dois");
+var_dump($arrteste);
+$arrteste = addOne($arrteste,"dois");
+echo "<br>";
+if ($arrteste == false) {
+    echo "mudança inválida";
+} else {
+    echo "mudança válida<br>";
+    var_dump($arrteste);
 }
-
+// $arrteste = subOne($arrteste,"dois");
 ?>
