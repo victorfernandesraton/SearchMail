@@ -16,7 +16,7 @@ require_once $path."/tables/_domainList.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="./jQuerry/jQuerry.js"></script>
-    <script src="./js/getForm.js"></script>
+    <script type="text/javascript" src="./js/getForm.js"></script>
 </head>
 <body>
     <form id ="mailform">

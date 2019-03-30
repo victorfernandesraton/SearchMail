@@ -1,3 +1,4 @@
+
 var domain_pref = domain_list.reverse();
 console.log(domain_pref);
 function similar_text (first, second, percent) {
