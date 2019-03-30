@@ -15,7 +15,7 @@ if (verfy_tb("domainlist") != false) {
 foreach ($list as $value) {
     $arrteste[] = $value['domainAdress'];
 }
-$arrteste = addOne($arrteste,$_GET['value']);
+$arrteste = subOne($arrteste,$_GET['value']);
 echo "<br>";
 if ($arrteste == false) {
     echo "mudança inválida";
