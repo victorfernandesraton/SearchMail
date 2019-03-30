@@ -1,4 +1,5 @@
 var err_case = domain_list.reverse();
+console.log(err_case);
 
 function similar_text (first, second) {
     // Calculates the similarity between two strings  
@@ -59,6 +60,7 @@ $(document).ready(function() { // ao iniciar o documento...
             if (element == domain) {
                 valid = true;
                 compout = domain;
+                $('#_teste').html("O domínio está correto: "+compout); // insere no document
             }
         });
         if (valid != true) {
@@ -68,13 +70,13 @@ $(document).ready(function() { // ao iniciar o documento...
                     compout = domain_src;
                 } else if (mostcomp == similar_text(mail,err_case)) {
                     domain_pref.forEach(err_case => {
-                        if (compout == err_case || domain_src == err_case) {
+                        if (domain_src === err_case) {
                             compout = err_case;
                         }
                     });
                 }
             });
+            $('#_teste').html("Foi constatado erro , logo substituiu-se: "+domain+" por: "+compout); // insere no document        
         }
-        $('#_teste').html(compout); // insere no document
     });
 });
