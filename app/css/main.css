@@ -27,3 +27,13 @@ form
     color: var(--bg_white) !important;
 }
 
+.page-left {
+    top: 20vh;
+    width: 20vw !important;
+    position: fixed !important;
+}
+
+.section-all {
+    margin-left: 10vw;
+}
+

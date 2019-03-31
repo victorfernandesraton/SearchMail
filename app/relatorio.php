@@ -16,15 +16,11 @@
 </head>
 <body>
 <?php require_once $path."/config/navbar.php"; ?>
-<section class="section">
-    <div class="container" id ="sub">
-        <ul>
-            <li><a href="#geral">Relatório geral</a></li>
-            <li><a href="#regioes">Regiões</a></li>
-        </ul>
-    </div>
-</section>
-<section class = "section">
+<div class="collection page-left">
+    <a class="collection-item" href="#geral">Relatório geral</a>
+    <a class="collection-item" href="#regioes">Regiões</a>
+</div>
+<section class = "section-all">
     <div class="container">  <!-- container principal -->
         <h1>Relatório geral</h1>
         <div class="row" id="geral"> <!-- linha 1 -->

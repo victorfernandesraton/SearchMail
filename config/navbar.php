@@ -4,8 +4,8 @@
         <li><a class="status" href="#!">two</a></li>
         <li><a class="status" href="#!">three</a></li>
     </ul>
-    <nav>
-        <div class="nav-wrapper">
+    <nav class="vna">
+        <div class="nav">
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="./Menu.php">Início</a></li>
