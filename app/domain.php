@@ -47,7 +47,41 @@ foreach ($list as $value) {
     </table>
     <form method="POST" action="../fun/addDomain.php">
         <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
-        <input type="submit" placeholder = "Enviar"value="Enviar">
+        <input type="submit" class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
+    </form>
+
+    <table>
+    <caption>Tabela dos dôminios</caption>
+    <tr>
+        <th>Regras</th>
+        <th>Domínio</th>
+        <th>Opções</th>
+    </tr>
+<?php
+if (verfy_tb("domainlist") != false) {
+    $cx = cx_bench("mailtool");
+    $query = "SELECT * FROM exception";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} 
+// var_dump($list);
+$list = array_reverse($list);
+foreach ($list as $value) {
+    echo '<tr>';
+    echo "<td>".$value['rule']."</td>";
+    echo "<td>".$value['domainAdress']."</td>";
+    echo '<td>
+    <a href = "../fun/dropRule.php?domain='.$value['domainAdress'].'">Deletar</a>
+    </td>';
+    echo '</tr>';
+}
+?>
+    </table>
+    <form method="POST" action="../fun/addRule.php">
+        <input type="text" name="newRule" required placeholder="digite a ocorrência a ser detectada">    
+        <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
+        <input class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
     </form>
 </body>
 </html>

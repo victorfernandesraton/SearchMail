@@ -7,7 +7,7 @@ if (verfy_tb("exception") == true && $_GET['domain'] != NULL) {
     $stmt = $cx->prepare($query);
     $stmt->bindValue(":domainAdress",$_GET['domain']);
     $stmt->execute();
-    header("Location: ../app/rules.php");
+    header("Location: ../app/domain.php");
 } else {
     echo "fail";
 }
