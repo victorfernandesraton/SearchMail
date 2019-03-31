@@ -14,7 +14,7 @@
     <a href="./relatorio.php">Relatório</a>
     <a href = "../settings/conexao.php">Conexão</a>
     <a href = "./teste.php" target="_blank">Inserir e-mail</a>
-    <a href = "./priority.php" target="_blank">Cofigurar a lista de prioridades</a>
+    <a href = "./domain.php" target="_blank">Cofigurar a lista de prioridades</a>
     <a href = "./loading.php" target="_blank">Carregar o banco de dados</a>
 </body>
 </html>

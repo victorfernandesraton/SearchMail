@@ -38,6 +38,6 @@ if ($arrteste == false) {
         $stmt->execute();
     }
 
-    header("Location: ../app/priority.php");
+    header("Location: ../app/domain.php");
 }
 ?>

@@ -20,7 +20,7 @@ require_once $path."/database/_sql_connect.php";
     <caption>Tabela dos dôminios</caption>
     <tr>
         <th>Domínio</th>
-        <th>Editar</th>
+        <th>Opções</th>
     </tr>
 <?php
 if (verfy_tb("domainlist") != false) {
@@ -31,10 +31,15 @@ if (verfy_tb("domainlist") != false) {
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } 
 // var_dump($list);
+$list = array_reverse($list);
 foreach ($list as $value) {
     echo '<tr>';
     echo "<td>".$value['domainAdress']."</td>";
-    echo '<td><a href= "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a></td>';
+    echo '<td>
+    <a href = "../fun/move_to_down.php?value='.$value['domainAdress'].'">Subir</a>
+    <a href = "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a>
+    <a href = "../fun/move_to_up.php?value='.$value['domainAdress'].'">Descer</a>
+    </td>';
     echo '</tr>';
 }
 ?>
