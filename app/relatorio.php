@@ -20,22 +20,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Logo</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="./Menu.php">Início</a></li>
-        <li><a href="./relatorio.php">Relatório</a></li>
-        <li><a href="./teste.php">Teste</a></li>
-        </ul>
-    </div>
-</nav>
+<?php require_once $path."/config/navbar.php"; ?>
     <h1>Relatório geral</h1>
     <table class = "tbrelatorio">
     <caption class = "tbrelatorio legenda">E-mails cadastrados</caption>

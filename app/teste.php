@@ -21,6 +21,7 @@ require_once $path."/tables/_domainList.php";
     <script type="text/javascript" src="./js/getForm.js"></script>
 </head>
 <body>
+<?php require_once $path."/config/navbar.php"; ?>
     <form id ="mailform">
     <input type="email" id ="mail" name = "mail" required>
     <a id="verify">Enviar</a>

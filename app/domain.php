@@ -16,6 +16,7 @@ require_once $path."/database/_sql_connect.php";
     <script src="main.js"></script>
 </head>
 <body>
+<?php require_once $path."/config/navbar.php"; ?>
     <table>
     <caption>Tabela dos dôminios</caption>
     <tr>
