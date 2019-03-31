@@ -17,10 +17,10 @@ require_once $path."/database/_sql_connect.php";
 </head>
 <body>
     <table>
-    <caption>Tabela de prioridade dos dôminios</caption>
+    <caption>Tabela dos dôminios</caption>
     <tr>
         <th>Domínio</th>
-        <th>Mover</th>
+        <th>Editar</th>
     </tr>
 <?php
 if (verfy_tb("domainlist") != false) {
@@ -31,15 +31,17 @@ if (verfy_tb("domainlist") != false) {
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } 
 // var_dump($list);
-$list = array_reverse($list);
 foreach ($list as $value) {
-    echo "<tr><td>".$value['domainAdress']."</td>
-    <td>
-    <a href =../fun/move_to_up.php?value=".$value['domainAdress'].">Descer</a><a href =../fun/move_to_down.php?value=".$value['domainAdress'].">Subir</a></td>
-    </tr>";
+    echo '<tr>';
+    echo "<td>".$value['domainAdress']."</td>";
+    echo '<td><a href= "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a></td>';
+    echo '</tr>';
 }
 ?>
-    </tr>
     </table>
+    <form method="POST" action="../fun/addDomain.php">
+        <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
+        <input type="submit" placeholder = "Enviar"value="Enviar">
+    </form>
 </body>
 </html>

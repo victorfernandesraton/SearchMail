@@ -6,6 +6,8 @@
     include_once $path."/tables/_domainList.php";
     include_once $path."/tables/_mailoldlist.php";
     include_once $path."/tables/_correctmails.php";
+    include_once $path."/tables/_explist.php";
+
 
     // funções
     require_once $path."/fun/ValidDomain.php";
@@ -60,7 +62,12 @@
     foreach ($mailList as $value) {
         $mail_obj[] = new _Mails($value);
     }
-
+    
+    // tabela de exceções
+    foreach ($exception_list as $exp) {
+        $except[] = new _Exceptions($exp['domainAdress'],$exp['rule']);
+    }
+    
     // validador de dominio
     foreach ($mail_obj as $mail) { // passagen de objeto email
         foreach ($domain_obj as $domain) { // passagen de objeto dominio
@@ -68,8 +75,7 @@
         }
     }
 
-    // exceções de teste
-    $except[] = new _Exceptions("gmail.com","mail.com");
+
     // subistituição e correção dos dôminios   
     foreach ($mail_obj as $mail) { // passagen de objeto email
         foreach ($domain_obj as $domain) { // passagen de objeto dominio
