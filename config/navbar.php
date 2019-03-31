@@ -1,9 +1,8 @@
 <div class="navbar-fixed">
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
+    <ul id="dropdown1" class="dropdown-content grey darken-3 status">
+        <li><a class="status" href="#!">one</a></li>
+        <li><a class="status" href="#!">two</a></li>
+        <li><a class="status" href="#!">three</a></li>
     </ul>
     <nav>
         <div class="nav-wrapper">

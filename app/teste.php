@@ -18,16 +18,22 @@ require_once $path."/tables/_domainList.php";
     $path = dirname(__DIR__);
     require_once $path."/config/allfront.php";
     ?>
-    <script type="text/javascript" src="./js/getForm.js"></script>
 </head>
 <body>
-<?php require_once $path."/config/navbar.php"; ?>
-    <form id ="mailform">
-    <input type="email" id ="mail" name = "mail" required>
-    <a id="verify">Enviar</a>
-    <div id = "_teste">
+    <?php require_once $path."/config/navbar.php"; ?>
+    <div class="container">
+        <h1>Adicionar email</h1>
+        <p><h2>Descrição:</h2>Nesta parte é possível ver o algorítmo em funcionamento pelo Javascript/JQuquery, além de permitir a adesão de endereços de email corrigidos</p>
+        <form id ="mailform" action="../app/teste.php">
+        <label for="">Endereço de email</label>
+        <input type="email" id ="mail" name = "mail" required>
+        <input type="hidden" value="" id="teste" name="teste">
+        <div id = "_teste">
+        </div>
+        <input id="btn-sent" class="waves-effect waves-light btn" type="submit" value="enviar">
+        </form>
     </div>
-    <input type="submit" value="enviar">
-    </form>
+    <?php require_once $path."/config/footer.php"; ?>
+    <script type="text/javascript" src="./js/getForm.js"></script>
 </body>
 </html>

@@ -9,15 +9,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SearchMail - Relatório</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- materialize css -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./materialize/css/materialize.min.css">
-    <!-- my css -->
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <!-- materialize script -->
-    <script src="./materialize/js/materialize.min.js"></script>
-    <!-- meu script -->
-    <script src="main.js"></script>
+    <?php require_once $path."/config/allfront.php"; ?>
+
 </head>
 <body>
 <?php require_once $path."/config/navbar.php"; ?>

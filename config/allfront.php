@@ -1,8 +1,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css materialize -->
     <link rel="stylesheet" type="text/css" media="screen" href="./materialize/css/materialize.min.css">
+    <!-- color theme -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../app/css/color.css">
+    <!-- navbar -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../app/css/navbar.css">
     <!-- css personal -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../app/css/main.css">
     <!-- jquerry -->
     <script src="./jQuerry/jQuerry.js"></script>
     <!-- materialize js -->

@@ -15,7 +15,6 @@
 <body>
     <h1>Carregando... Em breve você será redirecionado</h1>
 </body>
-
 </html>
 <?php
     require_once "./config/tratament.php";
