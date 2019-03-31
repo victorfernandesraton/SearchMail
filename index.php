@@ -19,6 +19,13 @@
 </html>
 <?php
     require_once "./config/tratament.php";
+    require_once "./database/_sql_connect.php";
+    // cria a tabela caso a mesma n exista
+    $cs = cx_bench("mailtool");
+    $query = "CREATE DATABASE IF NOT EXISTS mailtool";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
     // carrega os email's corrigidos em uma tabela sql
     header("location: ./app/Menu.php");
 ?>
