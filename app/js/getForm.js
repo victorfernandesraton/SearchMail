@@ -90,22 +90,20 @@ $(document).ready(function() { // ao iniciar o documento...
             novo_mail = mail.substr(0,mail.indexOf("@")+1)+compout;
             user = mail.substr(0,mail.indexOf("@")+1);
             $('#_teste').html("Foi constatado erro , logo substituiu-se: "+mail+" por: "+novo_mail); // insere no document
-            if (novo_mail == null || novo_mail == undefined) {
-              $('form').submit(function(){return false});     
-            } else {
-              $.ajax({
-                type      : 'POST', 
-                url       : 'sendmail.php', 
-                data      : 'mail ='+ novo_mail, 
-                dataType  : 'html', 
-                success   : function(novo_mail){
-                            alert("Ok");
-                },
-              }); 
-    
-            }
+            
           }
+          console.log(valid);
+          if (valid != true) {
+            $('#btn-sent').click(function(event){
+              $(event.target).attr('disabled', 'disabled');
+            });
+          } else {
+            $('#btn-sent').click(function(event){
+              $(event.target).attr('enable', 'enable');
+            });
+          }
+           });           
         });
-      });     
+
       
       

@@ -24,7 +24,7 @@ require_once $path."/tables/_domainList.php";
     <div class="container">
         <h1>Adicionar email</h1>
         <p><h2>Descrição:</h2>Nesta parte é possível ver o algorítmo em funcionamento pelo Javascript/JQuquery, além de permitir a adesão de endereços de email corrigidos</p>
-        <form id ="mailform" action="../app/teste.php">
+        <form id ="mailform" action="../app/Menu.php">
         <label for="">Endereço de email</label>
         <input type="email" id ="mail" name = "mail" required>
         <input type="hidden" value="" id="teste" name="teste">
