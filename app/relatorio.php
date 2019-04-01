@@ -22,10 +22,10 @@
   <!-- Dropdown Structure -->
   <div class="fixa">
       <ul id='dropdown_nav' class='dp_nav dropdown-content grey darken-3'>
-        <li><a href="#geral">Geral</a></li>
-        <li><a href="#regioes">Região</a></li>
-        <li><a href="#dominios">Domínios</a></li>
-        <li><a href="#errorcases">Casos de erro</a></li>
+        <li><a class="ft_dp"href="#geral">Geral</a></li>
+        <li><a class="ft_dp"href="#regioes">Região</a></li>
+        <li><a class="ft_dp"href="#dominios">Domínios</a></li>
+        <li><a class="ft_dp"href="#errorcases">Casos de erro</a></li>
     </ul>
         <a class='dropdown-trigger btn grey darken-3' href='#' data-target='dropdown_nav'>Clique aqui</a>
     </div>

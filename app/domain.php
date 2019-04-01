@@ -12,76 +12,124 @@ require_once $path."/database/_sql_connect.php";
     <?php
     require_once $path."/config/allfront.php";
     ?>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/domain.css">
 </head>
 <body>
-<?php require_once $path."/config/navbar.php"; ?>
-    <table>
-    <caption>Tabela dos dôminios</caption>
-    <tr>
-        <th>Domínio</th>
-        <th>Opções</th>
-    </tr>
-<?php
-if (verfy_tb("domainlist") != false) {
-    $cx = cx_bench("mailtool");
-    $query = "SELECT * FROM domainlist";
-    $stmt = $cx->prepare($query);
-    $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} 
-// var_dump($list);
-$list = array_reverse($list);
-foreach ($list as $value) {
-    echo '<tr>';
-    echo "<td>".$value['domainAdress']."</td>";
-    echo '<td>
-    <a href = "../fun/move_to_down.php?value='.$value['domainAdress'].'">Subir</a>
-    <a href = "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a>
-    <a href = "../fun/move_to_up.php?value='.$value['domainAdress'].'">Descer</a>
-    </td>';
-    echo '</tr>';
-}
-?>
-    </table>
-    <form method="POST" action="../fun/addDomain.php">
-        <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
-        <input type="submit" class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
-    </form>
+    <?php require_once $path."/config/navbar.php"; ?>
+    <div class="container">
+            <!-- Element Showed -->
+            <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
+            <a class="btn" id="open_ds">?</a>
+            <a class="btn" id="close_ds">X</a>
+            <!-- Tap Target Structure -->
+            <div class="tap-target" data-target="menu">
+                <div class="tap-target-content">
+                <h5>Domínios e regras:</h5>
+                <p>Nesta parte é possível configurar os domínios usadoas no algorítimos e as regras e ecxeções que determinam um domínio</p>
+                </div>
+            </div>
+        <h1>Domínios e regras</h1>
+    <section id="rules">
+        <h2>Regras</h2>
+        <form method="POST" action="../fun/addRule.php">
+        <div class="row">
+            <div class="col s3">
+                <label for="">Regra</label>
+                <input type="text" name="newRule" required placeholder="digite a ocorrência a ser detectada">    
+            </div>
+            <div class="col s4">
+                <label for="">Dôminio relacionado</label>
+                <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
+            </div>
+            <div class="col s4">
+                <input class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
+                </div>
+        </div>
+        </form>
 
-    <table>
-    <caption>Tabela dos dôminios</caption>
-    <tr>
-        <th>Regras</th>
-        <th>Domínio</th>
-        <th>Opções</th>
-    </tr>
-<?php
-if (verfy_tb("domainlist") != false) {
-    $cx = cx_bench("mailtool");
-    $query = "SELECT * FROM exception";
-    $stmt = $cx->prepare($query);
-    $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} 
-// var_dump($list);
-$list = array_reverse($list);
-foreach ($list as $value) {
-    echo '<tr>';
-    echo "<td>".$value['rule']."</td>";
-    echo "<td>".$value['domainAdress']."</td>";
-    echo '<td>
-    <a href = "../fun/dropRule.php?domain='.$value['domainAdress'].'">Deletar</a>
-    </td>';
-    echo '</tr>';
-}
-?>
-    </table>
-    <form method="POST" action="../fun/addRule.php">
-        <input type="text" name="newRule" required placeholder="digite a ocorrência a ser detectada">    
-        <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
-        <input class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
-    </form>
+        <table class="responsive-table centered striped">
+            <caption>Tabela dos dôminios</caption>
+            <tr>
+                <th>Regras</th>
+                <th>Domínio</th>
+                <th>Opções</th>
+            </tr>
+            <?php
+        if (verfy_tb("domainlist") != false) {
+            $cx = cx_bench("mailtool");
+            $query = "SELECT * FROM exception";
+            $stmt = $cx->prepare($query);
+            $stmt->execute();
+            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        // var_dump($list);
+        $list = array_reverse($list);
+        foreach ($list as $value) {
+            echo '<tr>';
+            echo "<td>".$value['rule']."</td>";
+            echo "<td>".$value['domainAdress']."</td>";
+            echo '<td>
+            <a href = "../fun/dropRule.php?domain='.$value['domainAdress'].'">Deletar</a>
+            </td>';
+            echo '</tr>';
+        }
+        ?>
+        </table>
+    </section>
+    <section id="dominios">
+            <h2>Domínios</h2>
+            <form method="POST" action="../fun/addDomain.php">
+            <label>Inserir novo</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="newDomain" required placeholder="digite apenas o domínio: example.com">
+                    </div>
+                    <div class="col">
+                        <input type="submit" class="btn waves-effect waves-light" type="submit" placeholder = "Enviar"value="Enviar">
+                    </div>
+                </div>
+            </form>
+            <table class="responsive-table centered striped">
+                <tr>
+                    <th>Domínio</th>
+                    <th>Opções</th>
+                </tr>
+                <?php
+            if (verfy_tb("domainlist") != false) {
+                $cx = cx_bench("mailtool");
+                $query = "SELECT * FROM domainlist";
+                $stmt = $cx->prepare($query);
+                $stmt->execute();
+                $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } 
+            // var_dump($list);
+            $list = array_reverse($list);
+            foreach ($list as $value) {
+                echo '<tr>';
+                echo "<td>".$value['domainAdress']."</td>";
+                echo '<td>
+                <a href = "../fun/move_to_down.php?value='.$value['domainAdress'].'">Subir</a>
+                <a href = "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a>
+                <a href = "../fun/move_to_up.php?value='.$value['domainAdress'].'">Descer</a>
+                </td>';
+                echo '</tr>';
+            }
+            ?>
+        </table>
+    </section>
+    </div>
 </body>
+<script>
+      $(document).ready(function(){
+    $('.tap-target').tapTarget();
+  });
+    $("#open_ds").click(function(){
+        $('.tap-target').tapTarget('open');
+    });
+    $("#close_ds").click(function(){
+        $('.tap-target').tapTarget('close');
+    });
+
+</script>
+
 </html>
