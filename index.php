@@ -41,6 +41,15 @@
     $stmt = $cx->prepare($query);
     $stmt->execute();
 
+    $preloader_domain = ["gmail.com","hotmail.com","hotmail.com.br","hotmail.com.ar","hotmail.com.mx","msn.com"];
+
+    foreach ($preloader_domain as $value) {
+      $stmt = $cx->prepare($query);
+      $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainadress);";
+      $stmt->nindValue(":domainAdress",$value);
+      $stmt->execute();
+    }
+
     $query = "CREATE TABLE IF NOT EXISTS exception (
         rule varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY,
         domainAdress varchar(256) COLLATE utf8_bin NOT NULL
