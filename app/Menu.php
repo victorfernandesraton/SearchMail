@@ -51,7 +51,7 @@
             <p>Permite ao usuário realizar a exportação daquilo que acha necessário</p>
           </div>
           <div class="card-action">
-            <a href="./relatorio.php">Ir para exportação</a>
+            <a href="./export.php">Ir para exportação</a>
           </div>
         </div>
       </div> <!-- fim do card -->

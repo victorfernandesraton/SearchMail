@@ -93,15 +93,6 @@ $(document).ready(function() { // ao iniciar o documento...
             
           }
           console.log(valid);
-          if (valid != true) {
-            $('#btn-sent').click(function(event){
-              $(event.target).attr('disabled', 'disabled');
-            });
-          } else {
-            $('#btn-sent').click(function(event){
-              $(event.target).attr('enable', 'enable');
-            });
-          }
            });           
         });
 
