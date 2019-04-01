@@ -12,9 +12,9 @@
                 <li><a href="./relatorio.php">Relatório</a></li>
                 <li><a href="./teste.php">Teste</a></li>
                 <li><a href="./domain.php">Dominios</a></li>
+                <li><a href="./export.php">Exportar</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Status<i></i></a></li>
                 <li><a class="btn" id="open_ds">Como funciona</a></li>
-
             </ul>
             <ul class="sidenav" id="mobile-demo">
     <li><a href="sass.html">Sass</a></li>

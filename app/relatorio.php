@@ -9,10 +9,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SearchMail - Relatório</title>
+    <script src="./js/charts.js"></script>
     <?php require_once $path."/config/allfront.php"; ?>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/relatorio.css">
     <!-- charts -->
-    <script src="./js/charts.js"></script>
 
 </head>
 <body>
