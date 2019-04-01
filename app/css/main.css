@@ -28,6 +28,6 @@ form
 }
 
 .btn {
-    background-color: var(--att) !important;
+    background-color: var(--ok) !important;
     color: var(--bg_white) !important;
 }

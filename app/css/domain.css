@@ -19,3 +19,11 @@ th {
     color: var(--bg_white) !important;
     border: 1px solid var(--bg_white);
 }
+
+.btn-delete {
+    background-color: var(--att) !important;
+}
+
+.bg-y {
+    background-color: var(--ok) !important; 
+}

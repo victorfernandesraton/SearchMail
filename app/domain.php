@@ -16,19 +16,26 @@ require_once $path."/database/_sql_connect.php";
 </head>
 <body>
     <?php require_once $path."/config/navbar.php"; ?>
+    <div class="fixed-action-btn">
+        <!-- Element Showed -->
+        <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
+    </div>
     <div class="container">
-            <!-- Element Showed -->
-            <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
-            <a class="btn" id="open_ds">?</a>
-            <a class="btn" id="close_ds">X</a>
             <!-- Tap Target Structure -->
-            <div class="tap-target" data-target="menu">
+            <div class="tap-target bg-y" data-target="menu">
                 <div class="tap-target-content">
-                <h5>Domínios e regras:</h5>
-                <p>Nesta parte é possível configurar os domínios usadoas no algorítimos e as regras e ecxeções que determinam um domínio</p>
+                    <h5 class="ftb">Domínios e regras:</h5>
+                    <p class="ftb">Nesta parte é possível configurar os domínios usadoas no algorítimo e as regras e ecxeções que determinam um domínio</p>
                 </div>
             </div>
-        <h1>Domínios e regras</h1>
+            <div class="row">
+                <div class="col">
+                    <h1>Domínios e regras</h1>
+                </div>
+                <div class="col">
+                    <a class="btn" id="open_ds">?</a>
+                </div>
+            </div>
     <section id="rules">
         <h2>Regras</h2>
         <form method="POST" action="../fun/addRule.php">
@@ -48,7 +55,6 @@ require_once $path."/database/_sql_connect.php";
         </form>
 
         <table class="responsive-table centered striped">
-            <caption>Tabela dos dôminios</caption>
             <tr>
                 <th>Regras</th>
                 <th>Domínio</th>
@@ -69,7 +75,7 @@ require_once $path."/database/_sql_connect.php";
             echo "<td>".$value['rule']."</td>";
             echo "<td>".$value['domainAdress']."</td>";
             echo '<td>
-            <a href = "../fun/dropRule.php?domain='.$value['domainAdress'].'">Deletar</a>
+            <a class="btn btn-delete" href = "../fun/dropRule.php?domain='.$value['domainAdress'].'">Deletar</a>
             </td>';
             echo '</tr>';
         }
@@ -108,9 +114,9 @@ require_once $path."/database/_sql_connect.php";
                 echo '<tr>';
                 echo "<td>".$value['domainAdress']."</td>";
                 echo '<td>
-                <a href = "../fun/move_to_down.php?value='.$value['domainAdress'].'">Subir</a>
-                <a href = "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a>
-                <a href = "../fun/move_to_up.php?value='.$value['domainAdress'].'">Descer</a>
+                <a class="btn btn-up" href = "../fun/move_to_down.php?value='.$value['domainAdress'].'">Subir</a>
+                <a class="btn btn-delete" href = "../fun/dropDomain.php?domain='.$value['domainAdress'].'">Deletar</a>
+                <a class="btn btn-down"href = "../fun/move_to_up.php?value='.$value['domainAdress'].'">Descer</a>
                 </td>';
                 echo '</tr>';
             }
