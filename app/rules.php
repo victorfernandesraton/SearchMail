@@ -34,7 +34,12 @@ if (verfy_tb("domainlist") != false) {
 } 
 // var_dump($list);
 $list = array_reverse($list);
+
 foreach ($list as $value) {
+    if (isset($_GET['task']) == false) {
+        echo "true";
+    } else echo "false";
+    
     echo '<tr>';
     echo "<td>".$value['rule']."</td>";
     echo "<td>".$value['domainAdress']."</td>";

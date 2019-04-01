@@ -8,7 +8,7 @@ if (verfy_tb("domainlist") == true && $_POST['newDomain'] != NULL && $_POST['new
     $stmt->bindValue(":domainAdress",$_POST['newDomain']);
     $stmt->bindValue(":rule",$_POST['newRule']);
     $stmt->execute();
-    header("Location: ../app/domain.php");
+    header("Location: ../app/domain.php?task=true");
 } else {
-    echo "fail";
+    header("Location: ../app/domain.php?task=false");    
 }

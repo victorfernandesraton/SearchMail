@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['mail']) == false) {
-    header("Location: ../app/teste.php?val=false");
+    header("Location: ../app/teste.php?task=false");
 }
 // database connection
 $path = dirname(__DIR__);
@@ -80,8 +80,6 @@ if (verfy_tb('mailcorrect') != false) {
     $stmt->bindValue(":region",$mail->getRegion());
     $stmt->bindValue(":user",$mail->getUser());
     $stmt->execute();
+    header("Location: ../app/teste.php?task=true");
 }
-
-header("Location: ../app/teste.php?val=true");
-
 ?>
