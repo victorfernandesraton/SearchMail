@@ -1,4 +1,4 @@
-
+//
 var domain_pref = domain_list.reverse();
 console.log(domain_pref);
 function similar_text (first, second, percent) {
@@ -62,32 +62,39 @@ function similar_text (first, second, percent) {
 
 // validando email dessa vez por jquerry
 $(document).ready(function() { // ao iniciar o documento...
-    $('#verify').click(function() { // se realizado click...
-        var mail = $('#mail').val(); // pega o valor do input
-        // captura o dominio
-        var domain = mail.substr(mail.indexOf("@")+1,mail.lenght);
-        compout = valid = mostcomp = null;
-        domain_list.forEach(element => {
-            if (element == domain) {
-                valid = true;
+    $('form').keyup(function() { // se realizado click...
+      var mail = $('#mail').val(); // pega o valor do input
+      // captura o dominio
+      var domain = mail.substr(mail.indexOf("@")+1,mail.lenght);
+      compout = valid = mostcomp = null;
+      domain_list.forEach(element => {
+        if (element == domain) {
+          valid = true;
                 compout = domain;
                 $('#_teste').html("O domínio está correto: "+compout); // insere no document
             }
-        });
-        if (valid != true) {
+          });
+          if (valid != true) {
             domain_list.forEach(domain_src => {
-                if (similar_text(domain,domain_src) > mostcomp) {
-                    mostcomp = similar_text(domain,domain_src);
-                    compout = domain_src;
-                } else if (similar_text(domain,domain_src) == mostcomp) {
-                    domain_pref.forEach(ele_pref => {
-                        if (domain == ele_pref || compout == ele_pref) {
-                            compout == ele_pref;
-                        }
-                    });
-                }
+              if (similar_text(domain,domain_src) > mostcomp) {
+                mostcomp = similar_text(domain,domain_src);
+                compout = domain_src;
+              } else if (similar_text(domain,domain_src) == mostcomp) {
+                domain_pref.forEach(ele_pref => {
+                  if (domain == ele_pref || compout == ele_pref) {
+                    compout == ele_pref;
+                  }
+                });
+              }
             });
-            $('#_teste').html("Foi constatado erro , logo substituiu-se: "+domain+" por: "+compout); // insere no document        
-        }
-    });
-});
+            novo_mail = mail.substr(0,mail.indexOf("@")+1)+compout;
+            user = mail.substr(0,mail.indexOf("@")+1);
+            $('#_teste').html("Foi constatado erro , logo substituiu-se: "+mail+" por: "+novo_mail); // insere no document
+            
+          }
+          console.log(valid);
+           });           
+        });
+
+      
+      

@@ -15,14 +15,56 @@
 <body>
     <h1>Carregando... Em breve você será redirecionado</h1>
 </body>
-
 </html>
 <?php
-    require_once "./config/tratament.php";
     require_once "./database/_sql_connect.php";
     // cria a tabela caso a mesma n exista
-    $cs = cx_bench("mailtool");
+    $cx = cx_bench("mailtool");
     $query = "CREATE DATABASE IF NOT EXISTS mailtool";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS mailcorrect (
+        id INT(5) AUTO_INCREMENT PRIMARY KEY,
+        mailAdress varchar(256) COLLATE utf8_bin NOT NULL,
+        region varchar(5) COLLATE utf8_bin NOT NULL,
+        user varchar(256) COLLATE utf8_bin NOT NULL
+      ) ENGINE=InnoDB AUTO_INCREMENT=8071 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+      ";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS domainlist (
+        domainAdress varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY COMMENT 'endereço completo'
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $preloader_domain = ["gmail.com","hotmail.com","hotmail.com.br","hotmail.com.ar","hotmail.com.mx","msn.com"];
+
+    $query = "SELECT COUNT(*) FROM domainlist";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+    if ($stmt->fetch(PDO::FETCH_ASSOC) <= 0) {
+      foreach ($preloader_domain as $value) {
+        $stmt = $cx->prepare($query);
+        $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainAdress);";
+        $stmt->bindValue(":domainAdress",$value);
+        $stmt->execute();
+      }
+    }
+
+    $query = "CREATE TABLE IF NOT EXISTS exception (
+        rule varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY,
+        domainAdress varchar(256) COLLATE utf8_bin NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS mailoldlist (
+        id int(11) AUTO_INCREMENT PRIMARY KEY,
+        mailAdress varchar(256) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL 
+      ) ENGINE=InnoDB AUTO_INCREMENT=101270 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
     $stmt = $cx->prepare($query);
     $stmt->execute();
 

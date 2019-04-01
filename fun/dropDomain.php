@@ -7,7 +7,7 @@ if (verfy_tb("domainlist") == true && $_GET['domain'] != NULL) {
     $stmt = $cx->prepare($query);
     $stmt->bindValue(":domainAdress",$_GET['domain']);
     $stmt->execute();
-    header("Location: ../app/domain.php");
+    header("Location: ../app/domain.php?task=valid");
 } else {
-    echo "fail";
+    header("Location: ../app/domain.php?task=false");    
 }
