@@ -9,7 +9,7 @@ if (verfy_tb("mailcorrect") == true) {
     $stmt->execute();
     $mailcorrect_list = $stmt->fetchALL(PDO::FETCH_ASSOC);
 } else {
-    $query = "CCREATE TABLE mailcorrect (
+    $query = "CREATE TABLE mailcorrect (
         index int(11) NOT NULL AUTO_INCREMENT,
         mailAdress varchar(256) COLLATE utf8_bin NOT NULL,
         region varchar(5) COLLATE utf8_bin NOT NULL,

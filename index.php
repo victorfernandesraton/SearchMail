@@ -25,6 +25,36 @@
     $stmt = $cx->prepare($query);
     $stmt->execute();
 
+    $query = "CREATE TABLE IF NOT EXISTS mailcorrect (
+        id INT(5) AUTO_INCREMENT PRIMARY KEY,
+        mailAdress varchar(256) COLLATE utf8_bin NOT NULL,
+        region varchar(5) COLLATE utf8_bin NOT NULL,
+        user varchar(256) COLLATE utf8_bin NOT NULL
+      ) ENGINE=InnoDB AUTO_INCREMENT=8071 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+      ";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS domainlist (
+        domainAdress varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY COMMENT 'endereço completo'
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS exception (
+        rule varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY,
+        domainAdress varchar(256) COLLATE utf8_bin NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
+    $query = "CREATE TABLE IF NOT EXISTS mailoldlist (
+        id int(11) AUTO_INCREMENT PRIMARY KEY,
+        mailAdress varchar(256) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL 
+      ) ENGINE=InnoDB AUTO_INCREMENT=101270 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+
     // carrega os email's corrigidos em uma tabela sql
     header("location: ./app/Menu.php");
 ?>
