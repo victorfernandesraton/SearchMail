@@ -7,8 +7,8 @@ $path = dirname(__DIR__);
 require_once $path."../../database/_sql_connect.php";
 
 // header que gera cvs
-// header('Content-type: application/ms-excel');
-// header('Content-Disposition: attachment; filename=sample.csv');
+header('Content-type: application/ms-excel');
+header('Content-Disposition: attachment; filename=sample.csv');
 
 $cx = cx_bench("mailtool");
 
