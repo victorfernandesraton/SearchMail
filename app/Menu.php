@@ -10,6 +10,13 @@
     ?>
    </head>
 <body>
+<div class="navbar-fixed">
+    <nav class="nav">
+    <a href="#" class="brand-logo left">Seja bem-vindo</a>
+        <a href="#" class="brand-logo right"><img class="logo-brand-img" alt="ecGlobal" src="../app/img/brand.png"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </nav>
+</div>
 <section class="section">
   <!-- container geral -->
   <div class="container"> 
