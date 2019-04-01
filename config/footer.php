@@ -1,1 +1,3 @@
-<script type="text/javascript" src="../app/materialize/js/materialize.min.js"></script>
+<footer>
+<script src="./js/how_it_works.js"></script>
+</footer>

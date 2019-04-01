@@ -17,7 +17,19 @@
 </head>
 <body>
 <?php require_once $path."/config/navbar.php"; ?>
-  <!-- Dropdown Trigger -->
+<!--how it works -->
+<div class="tap-target bg-y" data-target="menu">
+        <div class="tap-target-content">
+            <h5 class="ftb">Relatório</h5>
+            <p class="ftb">Nesta parte o algorítimo opera em tempo real, disponibilizando os resultados para os 100 mil endereços</p>
+        </div>
+    </div>
+
+    <!-- Element Showed -->
+    <div class="fixed-action-btn">
+        <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
+    </div>
+
   
   <!-- Dropdown Structure -->
   <div class="fixa">
@@ -103,4 +115,5 @@ $('.dp_nav a[href^="#"]').on('click', function(e) {
 	}, 500);
 });
 </script>
+<?php require_once $path."/config/footer.php";?>
 </html>

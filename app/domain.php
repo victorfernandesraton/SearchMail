@@ -16,26 +16,23 @@ require_once $path."/database/_sql_connect.php";
 </head>
 <body>
     <?php require_once $path."/config/navbar.php"; ?>
+    
+    <!--how it works -->
+    <div class="tap-target bg-y" data-target="menu">
+        <div class="tap-target-content">
+            <h5 class="ftb">Domínios e regras:</h5>
+            <p class="ftb">Nesta parte é possível configurar os domínios usadoas no algorítimo e as regras e ecxeções que determinam um domínio</p>
+        </div>
+    </div>
+
+    <!-- Element Showed -->
     <div class="fixed-action-btn">
-        <!-- Element Showed -->
         <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
     </div>
+    
     <div class="container">
-            <!-- Tap Target Structure -->
-            <div class="tap-target bg-y" data-target="menu">
-                <div class="tap-target-content">
-                    <h5 class="ftb">Domínios e regras:</h5>
-                    <p class="ftb">Nesta parte é possível configurar os domínios usadoas no algorítimo e as regras e ecxeções que determinam um domínio</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h1>Domínios e regras</h1>
-                </div>
-                <div class="col">
-                    <a class="btn" id="open_ds">?</a>
-                </div>
-            </div>
+
+            <h1>Domínios e regras</h1>
     <section id="rules">
         <h2>Regras</h2>
         <form method="POST" action="../fun/addRule.php">
@@ -125,17 +122,5 @@ require_once $path."/database/_sql_connect.php";
     </section>
     </div>
 </body>
-<script>
-      $(document).ready(function(){
-    $('.tap-target').tapTarget();
-  });
-    $("#open_ds").click(function(){
-        $('.tap-target').tapTarget('open');
-    });
-    $("#close_ds").click(function(){
-        $('.tap-target').tapTarget('close');
-    });
-
-</script>
-
+<?php require_once $path."/config/footer.php";?>
 </html>

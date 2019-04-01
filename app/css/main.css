@@ -31,3 +31,7 @@ form
     background-color: var(--ok) !important;
     color: var(--bg_white) !important;
 }
+
+.bg-y {
+    background-color: var(--ok) !important; 
+}
