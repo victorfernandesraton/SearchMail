@@ -1,6 +1,8 @@
 <?php
 $path = dirname(__DIR__);
 require_once $path."/database/_sql_connect.php";
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,10 +38,6 @@ if (verfy_tb("domainlist") != false) {
 $list = array_reverse($list);
 
 foreach ($list as $value) {
-    if (isset($_GET['task']) == false) {
-        echo "true";
-    } else echo "false";
-    
     echo '<tr>';
     echo "<td>".$value['rule']."</td>";
     echo "<td>".$value['domainAdress']."</td>";

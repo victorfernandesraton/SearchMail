@@ -7,7 +7,7 @@ if (verfy_tb("domainlist") == true && $_POST['newDomain'] != NULL) {
     $stmt = $cx->prepare($query);
     $stmt->bindValue(":domainAdress",$_POST['newDomain']);
     $stmt->execute();
-    header("Location: ../app/domain.php?task=true");
+    header("Location: ../app/domain.php?task=valid");
 } else {
     header("Location: ../app/domain.php?task=false");
 

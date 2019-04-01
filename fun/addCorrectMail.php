@@ -80,6 +80,6 @@ if (verfy_tb('mailcorrect') != false) {
     $stmt->bindValue(":region",$mail->getRegion());
     $stmt->bindValue(":user",$mail->getUser());
     $stmt->execute();
-    header("Location: ../app/teste.php?task=true");
+    header("Location: ../app/teste.php?task=valid");
 }
 ?>
