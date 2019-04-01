@@ -17,7 +17,7 @@
     <div class="tap-target bg-y" data-target="menu">
         <div class="tap-target-content">
             <h5 class="ftb">Exportar tabelas</h5>
-            <p class="ftb">Nesta parte é possível exportar os endereços corrigidos em MYSQL ou em cvs</p>
+            <p class="ftb">Nesta parte é possível exportar os endereços corrigidos em em .CSV</p>
             <p class="ftb">OBS: alguns casos podem demorar</p>
         </div>
     </div>
@@ -30,8 +30,7 @@
     <div class="container">
         <h1>Exportar tabelas</h1>
         <h2>OBS: caso seja iniciada a exportação recomenda-se que o usuário não ultilize a ferramenta até que a exportação esteja concluida</h2>
-        <a class="btn" href="./exp/sql/php">Exportar em MySQL</a>
-        <a class="btn" href="./exp/sql/php">Exportar em CSV</a>
+        <a class="btn" href="../app/exp/csv.php">Exportar em CSV</a>
     </div>
     <?php require_once $path."/config/footer.php"; ?>
     <script type="text/javascript" src="./js/getForm.js"></script>
