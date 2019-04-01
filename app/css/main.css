@@ -27,3 +27,7 @@ form
     color: var(--bg_white) !important;
 }
 
+.btn {
+    background-color: var(--att) !important;
+    color: var(--bg_white) !important;
+}
