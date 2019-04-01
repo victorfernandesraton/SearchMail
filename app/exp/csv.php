@@ -1,6 +1,6 @@
 <?php
 
-set_time_limit(5); // Limite de tempo de execução: Deixe 0 (zero) para sem limite
+set_time_limit(0); // Limite de tempo de execução: Deixe 0 (zero) para sem limite
 ignore_user_abort( true ); // Não encerra o processamento em caso de perda de conexão
 
 $path = dirname(__DIR__);
