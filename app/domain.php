@@ -1,11 +1,4 @@
 <?php
-if (isset($_GET['task']) == true) {
-    if ($_GET['task'] == "valid") {
-        // ok
-    } else {
-        // erro
-    }
-}
 $path = dirname(__DIR__);
 require_once $path."/database/_sql_connect.php";
 ?>
@@ -129,5 +122,6 @@ require_once $path."/database/_sql_connect.php";
     </section>
     </div>
 </body>
+
 <?php require_once $path."/config/footer.php";?>
 </html>

@@ -15,3 +15,10 @@
 <script>
 $(".dropdown-trigger").dropdown();
 </script>
+<?php
+if (isset($_GET['task']) == true) {
+    if ($_GET['task'] == "valid") {
+        echo "<script>alert('Alteração realizada com sucesso!!!')</script>";
+    } else echo "<script>alert('Houve um erro Tente mais tarde')</script>";
+}
+?>
