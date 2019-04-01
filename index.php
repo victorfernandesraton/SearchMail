@@ -17,10 +17,9 @@
 </body>
 </html>
 <?php
-    require_once "./config/tratament.php";
     require_once "./database/_sql_connect.php";
     // cria a tabela caso a mesma n exista
-    $cs = cx_bench("mailtool");
+    $cx = cx_bench("mailtool");
     $query = "CREATE DATABASE IF NOT EXISTS mailtool";
     $stmt = $cx->prepare($query);
     $stmt->execute();
@@ -46,16 +45,14 @@
     $query = "SELECT COUNT(*) FROM domainlist";
     $stmt = $cx->prepare($query);
     $stmt->execute();
-    if ($stmt->fetch(PDO::FETCH_ASSOC) > 0) {
+    if ($stmt->fetch(PDO::FETCH_ASSOC) <= 0) {
       foreach ($preloader_domain as $value) {
         $stmt = $cx->prepare($query);
-        $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainadress);";
+        $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainAdress);";
         $stmt->bindValue(":domainAdress",$value);
         $stmt->execute();
       }
     }
-
-
 
     $query = "CREATE TABLE IF NOT EXISTS exception (
         rule varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY,
@@ -72,5 +69,5 @@
     $stmt->execute();
 
     // carrega os email's corrigidos em uma tabela sql
-    // header("location: ./app/Menu.php");
+    header("location: ./app/Menu.php");
 ?>
