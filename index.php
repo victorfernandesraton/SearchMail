@@ -43,12 +43,19 @@
 
     $preloader_domain = ["gmail.com","hotmail.com","hotmail.com.br","hotmail.com.ar","hotmail.com.mx","msn.com"];
 
-    foreach ($preloader_domain as $value) {
-      $stmt = $cx->prepare($query);
-      $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainadress);";
-      $stmt->nindValue(":domainAdress",$value);
-      $stmt->execute();
+    $query = "SELECT COUNT(*) FROM domainlist";
+    $stmt = $cx->prepare($query);
+    $stmt->execute();
+    if ($stmt->fetch(PDO::FETCH_ASSOC) > 0) {
+      foreach ($preloader_domain as $value) {
+        $stmt = $cx->prepare($query);
+        $query = "INSERT INTO domainlist (domainAdress) VALUES (:domainadress);";
+        $stmt->bindValue(":domainAdress",$value);
+        $stmt->execute();
+      }
     }
+
+
 
     $query = "CREATE TABLE IF NOT EXISTS exception (
         rule varchar(256) COLLATE utf8_bin NOT NULL PRIMARY KEY,
@@ -65,5 +72,5 @@
     $stmt->execute();
 
     // carrega os email's corrigidos em uma tabela sql
-    header("location: ./app/Menu.php");
+    // header("location: ./app/Menu.php");
 ?>
