@@ -1,7 +1,9 @@
 <?php
+
 if (isset($_POST['mail']) == false) {
-    header("Location: ../app/teste.php?val=false");
+    header("Location: ../app/teste.php?return=error");
 }
+
 // database connection
 $path = dirname(__DIR__);
 include_once $path."/database/_sql_connect.php";
@@ -69,19 +71,43 @@ foreach ($domain_obj as $domain) { // passagen de objeto dominio
         ErrorDomain($mail,$domain,$priority_list,$exp_list); // função de análise de erros
     }
 }
-
-$query = "INSERT INTO mailcorrect (mailAdress,region,user)
-VALUES (:mailAdress,:region,:user);";
-
-if (verfy_tb('mailcorrect') != false) {
-    $cx = cx_bench("mailtool");
-    $stmt = $cx->prepare($query);
-    $stmt->bindValue(":mailAdress",$mail->getSimilarDomain());
-    $stmt->bindValue(":region",$mail->getRegion());
-    $stmt->bindValue(":user",$mail->getUser());
-    $stmt->execute();
-}
-
-header("Location: ../app/teste.php?val=true");
-
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SearchMail - Teste de script</title>
+    <?php 
+    require_once $path."/config/allfront.php";
+    ?>
+</head>
+<body>
+    <?php require_once $path."/config/navbar.php"; ?>
+    <!--how it works -->
+    <div class="tap-target bg-y" data-target="menu">
+        <div class="tap-target-content">
+            <h5 class="ftb">Confirmação de e-mail:</h5>
+            <p class="ftb">Verifique e de necessário modifique o e-mail digitado anteriormente.</p>
+        </div>
+    </div>
+
+    <!-- Element Showed -->
+    <div class="fixed-action-btn">
+        <a id="menu" class=" waves-light btn btn-floating" ><i class="material-icons">?</i></a>
+    </div>
+
+    <div class="container">
+        <h1>Confirmar e-mail</h1>
+        <form id="mailform" method="POST" action="../fun/addCorrectMail.php">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate" name="mail" value="<?php echo $_POST['mail']; ?>">
+                <label for ="email">O endereço digitado foi:</label>
+                <input class="btn waves-effect waves-light" value="Enviar" name="Enviar" placeholder="Enviar" type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+<?php require_once $path."/config/footer.php";?>
+</html>

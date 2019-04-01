@@ -12,6 +12,7 @@
 </head>
 <body>
     <?php require_once $path."/config/navbar.php"; ?>
+    
     <!--how it works -->
     <div class="tap-target bg-y" data-target="menu">
         <div class="tap-target-content">
